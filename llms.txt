@@ -1,0 +1,11 @@
+Site: Field Project AI Knowledge
+URL: https://edosdat.github.io/fieldprojectai-knowledge/
+
+Description:
+Knowledge base about AI agents and workflows for construction project management.
+
+Topics:
+- Construction AI agents
+- Bulldozair integrations
+- Field project automation
+- Knowledge retrieval systems
