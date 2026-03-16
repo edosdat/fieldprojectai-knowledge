@@ -1,1061 +1,323 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="msvalidate.01" content="EA523E7E5DD378F5C679DEA0C9F5734F" />
-<title>BulldozAI — Base de connaissances Méthode Éloi</title>
-<style>
-  body { font-family: Arial, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; color: #222; }
-  h1 { color: #1F3864; border-bottom: 3px solid #2E75B6; padding-bottom: 10px; }
-  h2 { color: #1F3864; border-left: 5px solid #2E75B6; padding-left: 12px; margin-top: 40px; }
-  h3 { color: #2E75B6; margin-top: 24px; }
-  h4 { color: #2C3E50; margin-top: 16px; }
-  p { line-height: 1.6; margin: 6px 0; }
-  table { border-collapse: collapse; width: 100%; margin: 12px 0; }
-  td { border: 1px solid #ccc; padding: 6px 10px; vertical-align: top; font-size: 14px; }
-  tr:nth-child(even) td { background: #f5f5f5; }
-  .fiche { border-top: 3px solid #1F3864; margin-top: 60px; padding-top: 20px; }
-  .fiche-id { display: inline-block; background: #1F3864; color: white; padding: 4px 14px; border-radius: 4px; font-weight: bold; font-size: 18px; margin-bottom: 8px; }
-  nav { background: #f0f4f8; padding: 16px; border-radius: 8px; margin-bottom: 40px; }
-  nav h2 { margin-top: 0; border: none; padding: 0; font-size: 18px; }
-  nav a { display: inline-block; margin: 3px 6px; color: #2E75B6; text-decoration: none; font-size: 14px; }
-  nav a:hover { text-decoration: underline; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="msvalidate.01" content="EA523E7E5DD378F5C679DEA0C9F5734F" />
+
+  <title>BulldozAI – Base de connaissances Bulldozair | Méthode Éloi | FieldProjectAI</title>
+  <meta name="description" content="Base de connaissances Bulldozair pour la configuration de projets, workflows, tags, statuts, reporting, formulaires, OPR, FNC, CRR, QSE, BIM, SIG et méthode Éloi pour FieldProjectAI.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://edosdat.github.io/fieldprojectai-knowledge/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="BulldozAI – Base de connaissances Bulldozair | Méthode Éloi">
+  <meta property="og:description" content="Documentation de référence pour la configuration Bulldozair : tags, workflows, reporting, formulaires, OPR, FNC, CRR, QSE, BIM, SIG et méthode Éloi.">
+  <meta property="og:url" content="https://edosdat.github.io/fieldprojectai-knowledge/">
+  <meta property="og:site_name" content="FieldProjectAI Knowledge">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="BulldozAI – Base de connaissances Bulldozair">
+  <meta name="twitter:description" content="Documentation Bulldozair et méthode Éloi pour FieldProjectAI.">
+
+  <link rel="alternate" type="application/xml" title="Sitemap" href="https://edosdat.github.io/fieldprojectai-knowledge/sitemap.xml">
+  <link rel="alternate" type="text/plain" title="LLMs" href="https://edosdat.github.io/fieldprojectai-knowledge/llms.txt">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "BulldozAI – Base de connaissances Bulldozair",
+    "description": "Base de connaissances dédiée à la configuration de projets Bulldozair, à la méthode Éloi et à l'agent FieldProjectAI.",
+    "inLanguage": "fr",
+    "author": {
+      "@type": "Person",
+      "name": "Eloi Dosdat"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "FieldProjectAI"
+    },
+    "url": "https://edosdat.github.io/fieldprojectai-knowledge/",
+    "mainEntityOfPage": "https://edosdat.github.io/fieldprojectai-knowledge/",
+    "keywords": [
+      "Bulldozair",
+      "FieldProjectAI",
+      "configuration Bulldozair",
+      "tags Bulldozair",
+      "workflow Bulldozair",
+      "reporting chantier",
+      "OPR",
+      "FNC",
+      "CRR",
+      "QSE",
+      "BIM",
+      "IFC",
+      "SIG",
+      "GeoJSON"
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --primary: #1F3864;
+      --secondary: #2E75B6;
+      --text: #222;
+      --muted: #5a6773;
+      --bg-soft: #f4f8fb;
+      --border: #d7dde5;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 24px;
+      color: var(--text);
+      line-height: 1.65;
+      background: #fff;
+    }
+
+    header {
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      color: var(--primary);
+      border-bottom: 3px solid var(--secondary);
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      color: var(--primary);
+      border-left: 5px solid var(--secondary);
+      padding-left: 12px;
+      margin-top: 40px;
+    }
+
+    h3 {
+      color: var(--secondary);
+      margin-top: 24px;
+    }
+
+    h4 {
+      color: #2C3E50;
+      margin-top: 16px;
+    }
+
+    p {
+      margin: 8px 0;
+    }
+
+    .intro {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+      margin: 18px 0 28px;
+    }
+
+    .meta-links {
+      margin-top: 10px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .meta-links a {
+      color: var(--secondary);
+      text-decoration: none;
+      margin-right: 16px;
+    }
+
+    .meta-links a:hover {
+      text-decoration: underline;
+    }
+
+    nav {
+      background: var(--bg-soft);
+      padding: 16px;
+      border-radius: 10px;
+      margin-bottom: 40px;
+      border: 1px solid var(--border);
+    }
+
+    nav h2 {
+      margin-top: 0;
+      border: none;
+      padding: 0;
+      font-size: 18px;
+    }
+
+    nav a {
+      display: inline-block;
+      margin: 4px 8px 4px 0;
+      color: var(--secondary);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 12px 0 18px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px 10px;
+      vertical-align: top;
+      font-size: 14px;
+    }
+
+    th {
+      background: #eaf2fb;
+      text-align: left;
+    }
+
+    tr:nth-child(even) td {
+      background: #f7f7f7;
+    }
+
+    .fiche {
+      border-top: 3px solid var(--primary);
+      margin-top: 60px;
+      padding-top: 20px;
+    }
+
+    .fiche-id {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 4px 14px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .top-link {
+      margin-top: 14px;
+      font-size: 14px;
+    }
+
+    .top-link a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+
+    .top-link a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    code {
+      background: #f4f4f4;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
 </head>
 <body>
-<h1>BulldozAI — Base de connaissances Méthode Éloi</h1>
-<p><strong>Document de référence agent FieldProjectAI — Fiches F01 à F30</strong></p>
-<p>Ce document contient l'intégralité des fiches de configuration Bulldozair. 
-Il est la source unique de vérité pour l'agent FieldProjectAI. 
-Toute réponse doit s'appuyer exclusivement sur ce contenu.</p>
+  <header>
+    <h1>BulldozAI — Base de connaissances Méthode Éloi</h1>
+    <p><strong>Document de référence pour l’agent FieldProjectAI — Fiches F01 à F30</strong></p>
 
-<nav><h2>Sommaire</h2>
-<a href="#F01">F01 — Philosophie & structure d'un projet</a>
-<a href="#F02">F02 — Règle 1 espace = 1 usage</a>
-<a href="#F03">F03 — Limites techniques</a>
-<a href="#F04">F04 — Attribution vs Partage</a>
-<a href="#F05">F05 — Rôles utilisateurs</a>
-<a href="#F05b">F05b — Groupes Bulldozair</a>
-<a href="#F06">F06 — Structure interne d'une tâche</a>
-<a href="#F07">F07 — Tags — familles officielles</a>
-<a href="#F08">F08 — Statuts & Workflows — valeurs figées</a>
-<a href="#F09">F09 — Formulaires</a>
-<a href="#F10">F10 — Plans, modèles 3D et SIG</a>
-<a href="#F11">F11 — Reporting</a>
-<a href="#F12">F12 — Cas d'usage : Suivi de chantier</a>
-<a href="#F13">F13 — Cas d'usage : OPR</a>
-<a href="#F14">F14 — Cas d'usage : FNC</a>
-<a href="#F15">F15 — Cas d'usage : CRR</a>
-<a href="#F16">F16 — Cas d'usage : QSE / Audit</a>
-<a href="#F17">F17 — Cas d'usage : SIG Infrastructure</a>
-<a href="#F18">F18 — Méthode Éloi — 15 étapes</a>
-<a href="#F19">F19 — Découpage des espaces</a>
-<a href="#F20">F20 — Template projet</a>
-<a href="#F21">F21 — Formation utilisateurs</a>
-<a href="#F22">F22 — Anti-pattern : Absence de tags</a>
-<a href="#F23">F23 — Anti-pattern : Tâches fourre-tout</a>
-<a href="#F24">F24 — Anti-pattern : Statuts & workflow</a>
-<a href="#F25">F25 — Anti-pattern : Utilisateurs & formulaires</a>
-<a href="#F26">F26 — Checklist démarrage</a>
-<a href="#F27">F27 — Checklist tags</a>
-<a href="#F28">F28 — Checklist tâches</a>
-<a href="#F29">F29 — Arbres décisionnels</a>
-<a href="#F30">F30 — 10 règles essentielles</a>
-</nav>
-<div class="fiche" id="F01">
-<span class="fiche-id">F01</span>
-<h2>F01 — Philosophie & structure d'un projet</h2>
-<p>F01 — Philosophie &amp; positionnement Bulldozair</p>
-<p>Catégorie : Fondamentaux    |    Usage : Q&amp;A · Onboarding</p>
-<h2>Ce que Bulldozair est — et n&#x27;est pas</h2>
-<p>Bulldozair n&#x27;est pas un outil libre ou un bloc-notes numérique. C&#x27;est un outil de procédure, de suivi, de preuve et de reporting. Tout dans Bulldozair doit être pensé pour produire une donnée exploitable.</p>
-<h3>Les 3 piliers</h3>
-<p>➜ Tout projet Bulldozair doit être conçu à partir du reporting final.</p>
-<h3>Pourquoi cette philosophie ?</h3>
-<p>Les données terrain ne valent que si elles sont exploitables.</p>
-<p>Un projet sans structure = données mortes.</p>
-<p>Un projet bien structuré = rapport produit en quelques clics.</p>
-<p>⚠ Bulldozair mal configuré donne l&#x27;illusion du travail sans valeur ajoutée réelle.</p>
-<table>
-<tr><td>Pilier</td><td>Description</td></tr>
-<tr><td>La tâche</td><td>Unité minimale de donnée. 1 tâche = 1 élément unique (observation, réserve, FNC, point...).</td></tr>
-<tr><td>Le workflow</td><td>Ce qui fait évoluer la tâche dans le temps. Manuel, collaboratif, structuré.</td></tr>
-<tr><td>Le reporting</td><td>La finalité du projet. Ce que l&#x27;on veut sortir conditionne toute la structure.</td></tr>
-</table>
-</div>
-<div class="fiche" id="F02">
-<span class="fiche-id">F02</span>
-<h2>F02 — Règle 1 espace = 1 usage</h2>
-<p>F02 — Règle fondamentale : 1 espace = 1 cas d&#x27;usage</p>
-<p>Catégorie : Fondamentaux    |    Usage : Configuration · Avant-vente</p>
-<h2>1 espace = 1 cas d&#x27;usage = 1 logique métier</h2>
-<p>C&#x27;est la règle la plus importante de la méthode. Chaque espace Bulldozair doit être monofonction.</p>
-<h3>Pourquoi cette règle ?</h3>
-<h3>Cas d&#x27;usage à séparer systématiquement</h3>
-<p>Suivi de chantier</p>
-<p>OPR</p>
-<p>FNC</p>
-<p>CRR (Compte Rendu de Réunion)</p>
-<p>Contrôle / Inspection</p>
-<p>Audit / QSE</p>
-<p>Infrastructure SIG</p>
-<p>⚠ Mélanger deux cas d&#x27;usage dans un espace est l&#x27;erreur de configuration la plus fréquente.</p>
-<p>✔ Un espace = une réalité métier homogène = un rapport propre.</p>
-<table>
-<tr><td>Dimension</td><td>Conséquence si mélangée</td></tr>
-<tr><td>Workflows</td><td>Des statuts OPR et suivi de chantier dans le même espace créent une confusion totale.</td></tr>
-<tr><td>Utilisateurs</td><td>Les entreprises voient des tâches qui ne les concernent pas.</td></tr>
-<tr><td>Reporting</td><td>Impossible de sortir un OPR propre si les tâches sont mélangées avec du suivi.</td></tr>
-<tr><td>Tags</td><td>Les familles de tags ne peuvent pas correspondre à deux logiques différentes.</td></tr>
-</table>
-</div>
-<div class="fiche" id="F03">
-<span class="fiche-id">F03</span>
-<h2>F03 — Limites techniques</h2>
-<p>F03 — Limites techniques Bulldozair</p>
-<p>Catégorie : Fondamentaux    |    Usage : Configuration · Delivery</p>
-<h2>Limites réelles observées sur le terrain</h2>
-<p>Ces limites ne sont pas officiellement documentées, mais sont constatées sur des centaines de projets. Les ignorer entraîne des problèmes de performance et d&#x27;usage.</p>
-<h3>Que faire si on approche des limites ?</h3>
-<h3>Tâches &gt; 5 000</h3>
-<p>Découper par bâtiment, gare, tronçon ou phase</p>
-<p>Créer un espace par lot ou par zone</p>
-<p>Archiver les tâches clôturées</p>
-<h3>Utilisateurs &gt; 20</h3>
-<p>Créer des espaces séparés par équipe ou lot</p>
-<p>Utiliser des groupes pour limiter la visibilité</p>
-<p>Séparer MOE/MOA/Entreprises dans des espaces distincts</p>
-<p>➜ En cas de doute sur la volumétrie prévisionnelle : prévoir le split dès le départ.</p>
-<table>
-<tr><td>Limite</td><td>Seuil</td><td>Impact si dépassé</td></tr>
-<tr><td>Tâches par espace</td><td>5 000 max</td><td>Ralentissements, rapports lourds, complexité ingérable</td></tr>
-<tr><td>Utilisateurs par espace</td><td>20 max</td><td>Spam de notifications, onboarding chaotique, bruit opérationnel</td></tr>
-</table>
-</div>
-<div class="fiche" id="F04">
-<span class="fiche-id">F04</span>
-<h2>F04 — Attribution vs Partage</h2>
-<p>F04 — Attribution vs Partage</p>
-<p>Catégorie : Fondamentaux    |    Usage : Configuration · Formation</p>
-<h2>La métaphore de l&#x27;email</h2>
-<h3>Règles d&#x27;usage</h3>
-<p>Attribution → une personne ou un groupe responsable du traitement</p>
-<p>Partage → les parties prenantes qui doivent suivre sans agir</p>
-<p>Les deux ensemble → détermine qui voit quoi dans le projet</p>
-<h3>Mécanique de visibilité complète</h3>
-<p>⚠ Un utilisateur non attribué et non en partage ne voit pas la tâche — même s&#x27;il est dans l&#x27;espace.</p>
-<p>➜ Toujours partager par défaut à un groupe interne incluant l&#x27;admin pour éviter les tâches invisibles.</p>
-<table>
-<tr><td>Mécanisme</td><td>Équivalent email</td><td>Signification</td></tr>
-<tr><td>Attribution</td><td>À :</td><td>Responsabilité directe. L&#x27;utilisateur doit traiter ce point.</td></tr>
-<tr><td>Partage</td><td>CC :</td><td>Visibilité sans responsabilité. L&#x27;utilisateur est informé.</td></tr>
-<tr><td>Élément</td><td>Contrôle</td></tr>
-<tr><td>Rôle</td><td>Les droits (ce qu&#x27;on peut faire)</td></tr>
-<tr><td>Attribution</td><td>La visibilité de responsabilité</td></tr>
-<tr><td>Partage</td><td>La visibilité informationnelle</td></tr>
-<tr><td>Équipe</td><td>L&#x27;accès au projet</td></tr>
-</table>
-</div>
-<div class="fiche" id="F05">
-<span class="fiche-id">F05</span>
-<h2>F05 — Rôles utilisateurs</h2>
-<p>F05 — Rôles, utilisateurs et groupes</p>
-<p>Catégorie : Fondamentaux    |    Usage : Configuration · Onboarding · Setup</p>
-<h2>Les 5 rôles Bulldozair</h2>
-<p>INSTRUCTION AGENT : lors du setup équipe, collecter les emails (obligatoires) et affecter le rôle correspondant. Le nom/prénom est optionnel.</p>
-<h3>Ce que l&#x27;agent doit collecter pour chaque utilisateur</h3>
-<p>➜ L&#x27;email est l&#x27;identifiant unique dans Bulldozair. Sans email, impossible d&#x27;inviter un utilisateur.</p>
-<h3>Questions à poser lors du setup équipe</h3>
-<p>Qui est le propriétaire de l&#x27;espace ? (1 seul — email obligatoire)</p>
-<p>Qui sont les admins ? (1 à 2 max — emails)</p>
-<p>Qui sont les collaborateurs internes ? (équipe MOE/OPC — emails)</p>
-<p>Quelles entreprises / sous-traitants accèdent à l&#x27;espace ? (emails ou domaines)</p>
-<p>Le MOA doit-il avoir accès ? Si oui, en Lecteur ou Rapporteur ?</p>
-<p>Faut-il créer des groupes ? (voir F05b — groupes)</p>
-<p>⚠ Ne jamais dépasser 20 utilisateurs par espace — au-delà, créer des espaces séparés (F03).</p>
-<p>⚠ Les entreprises = toujours Rapporteur, jamais Collaborateur.</p>
-<table>
-<tr><td>Rôle</td><td>Capacités</td><td>Usage typique</td><td>Nb conseillé</td></tr>
-<tr><td>Propriétaire</td><td>Tout faire — 1 seul par espace</td><td>Chef de projet MOE</td><td>1 exact</td></tr>
-<tr><td>Admin</td><td>Tout sauf changer le propriétaire</td><td>Référent technique, BIM manager</td><td>1 à 2 max</td></tr>
-<tr><td>Collaborateur</td><td>Créer tâches, ajouter contenu</td><td>MOE, OPC, équipe terrain</td><td>Illimité</td></tr>
-<tr><td>Rapporteur</td><td>Ajouter contenu sur tâches vues/attribuées</td><td>Entreprises, sous-traitants</td><td>Illimité</td></tr>
-<tr><td>Lecteur</td><td>Lecture uniquement</td><td>MOA, direction, client</td><td>Illimité</td></tr>
-<tr><td>Champ</td><td>Obligatoire ?</td><td>Format attendu</td></tr>
-<tr><td>Email</td><td>OUI — c&#x27;est l&#x27;identifiant Bulldozair</td><td>prenom.nom@domaine.com</td></tr>
-<tr><td>Rôle</td><td>OUI</td><td>Propriétaire / Admin / Collaborateur / Rapporteur / Lecteur</td></tr>
-<tr><td>Nom / Prénom</td><td>Non — optionnel</td><td>Libre</td></tr>
-<tr><td>Entreprise / Organisation</td><td>Recommandé</td><td>Libre</td></tr>
-<tr><td>Appartenance à un groupe</td><td>Recommandé</td><td>Nom du groupe (voir F05b)</td></tr>
-</table>
-</div>
-<div class="fiche" id="F05b">
-<span class="fiche-id">F05b</span>
-<h2>F05b — Groupes Bulldozair</h2>
-<p>F05b — Les groupes Bulldozair</p>
-<p>Catégorie : Fondamentaux    |    Usage : Configuration · Setup · Partage</p>
-<h2>Pourquoi les groupes sont essentiels</h2>
-<p>Dans Bulldozair, l&#x27;attribution et le partage se font soit sur une personne, soit sur un groupe. Les groupes permettent d&#x27;attribuer une tâche à &#x27;Entreprise GO&#x27; sans devoir sélectionner chaque ouvrier individuellement.</p>
-<p>➜ Sans groupes bien configurés, les attributions sont individuelles → surcharge manuelle → erreurs → tâches invisibles.</p>
-<h3>Les deux types de groupes à créer</h3>
-<h3>Questions à poser lors du setup des groupes</h3>
-<p>Voulez-vous créer un groupe interne MOE ? (recommandé — sera utilisé pour le partage par défaut)</p>
-<p>Quelles entreprises / lots ont plusieurs personnes ? (créer un groupe par lot)</p>
-<p>Comment s&#x27;appellent vos lots ? (noms exacts pour les groupes)</p>
-<h3>Format de collecte — ce que l&#x27;agent doit demander</h3>
-<p>Pour chaque groupe, collecter :</p>
-<h3>Groupes recommandés par cas d&#x27;usage</h3>
-<h3>Lien groupes ↔ partage par défaut</h3>
-<p>Le partage par défaut doit TOUJOURS pointer vers le groupe interne MOE — pas vers des individus. Si ce groupe n&#x27;est pas créé, les tâches créées sans attribution manuelle ne seront vues que par leur créateur.</p>
-<p>⚠ Pas de groupe interne = pas de partage par défaut fiable = tâches invisibles dans les rapports (Anti-pattern #9, F25).</p>
-<p>➜ Créer le groupe interne MOE EN PREMIER, avant d&#x27;inviter les autres utilisateurs.</p>
-<table>
-<tr><td>Type de groupe</td><td>Objectif</td><td>Exemple</td><td>Utilisé pour</td></tr>
-<tr><td>Groupe interne</td><td>Réunir l&#x27;équipe MOE/OPC</td><td>Groupe MOE Projet X</td><td>Partage par défaut — toutes les tâches visibles par l&#x27;équipe</td></tr>
-<tr><td>Groupe entreprise</td><td>Réunir les membres d&#x27;un lot</td><td>Groupe GO / Groupe CFA</td><td>Attribution par lot — les réserves ou FNC vont à tout le lot</td></tr>
-<tr><td>Champ</td><td>Obligatoire ?</td><td>Exemple</td></tr>
-<tr><td>Nom du groupe</td><td>OUI</td><td>Groupe MOE / Groupe GO / Groupe CFA</td></tr>
-<tr><td>Type</td><td>OUI</td><td>Interne ou Entreprise</td></tr>
-<tr><td>Membres (emails)</td><td>OUI</td><td>liste des emails du groupe</td></tr>
-<tr><td>Usage prévu</td><td>Recommandé</td><td>Partage par défaut / Attribution par lot</td></tr>
-<tr><td>Cas d&#x27;usage</td><td>Groupes recommandés</td></tr>
-<tr><td>Suivi de chantier</td><td>Groupe MOE interne (partage défaut) + 1 groupe par entreprise si &gt; 3 personnes</td></tr>
-<tr><td>OPR</td><td>1 groupe par lot technique (attribution des réserves par lot)</td></tr>
-<tr><td>FNC</td><td>1 groupe qualité/QSE + 1 groupe par lot</td></tr>
-<tr><td>CRR</td><td>Groupe MOE + Groupe MOA si actifs dans le CRR</td></tr>
-<tr><td>QSE / Audit</td><td>Groupe QSE interne + groupes entreprises concernées</td></tr>
-</table>
-</div>
-<div class="fiche" id="F06">
-<span class="fiche-id">F06</span>
-<h2>F06 — Structure interne d'une tâche</h2>
-<p>F06 — Structure interne d&#x27;une tâche</p>
-<p>Catégorie : Fondamentaux    |    Usage : Formation · Q&amp;A</p>
-<h2>Anatomie d&#x27;une tâche Bulldozair</h2>
-<p>La tâche est l&#x27;unité minimale et centrale de Bulldozair. Elle n&#x27;est pas un to-do, pas une demande. C&#x27;est une observation unique, documentée et traçable.</p>
-<h3>Contenu</h3>
-<h3>Métadonnées</h3>
-<p>⚠ Aucun champ natif n&#x27;est obligatoire. Pour imposer des champs → utiliser un formulaire.</p>
-<p>➜ 1 tâche = 1 observation = 1 ligne dans les rapports. Ne jamais regrouper plusieurs observations dans une tâche.</p>
-<table>
-<tr><td>Champ</td><td>Description</td><td>Obligatoire ?</td></tr>
-<tr><td>Photos</td><td>Preuves visuelles de l&#x27;observation</td><td>Non (mais fortement recommandé)</td></tr>
-<tr><td>Commentaires</td><td>Description textuelle</td><td>Non</td></tr>
-<tr><td>Position</td><td>Sur plan 2D, carte GPS, modèle 3D, ou non localisée</td><td>Non</td></tr>
-<tr><td>Formulaire</td><td>Checklist structurée (optionnel)</td><td>Non</td></tr>
-<tr><td>Champ</td><td>Description</td><td>Obligatoire ?</td></tr>
-<tr><td>Tags</td><td>Classification par famille</td><td>Non natif — oui en pratique</td></tr>
-<tr><td>Statut</td><td>Avancement dans le workflow</td><td>Oui (par défaut = statut initial)</td></tr>
-<tr><td>Attribution</td><td>Responsable du traitement</td><td>Non natif — oui en pratique</td></tr>
-<tr><td>Partage</td><td>Visibilité sans responsabilité</td><td>Non</td></tr>
-<tr><td>Date d&#x27;observation</td><td>Quand l&#x27;observation a été faite</td><td>Non</td></tr>
-<tr><td>Date d&#x27;échéance</td><td>Délai de traitement</td><td>Non (obligatoire en CRR)</td></tr>
-</table>
-</div>
-<div class="fiche" id="F07">
-<span class="fiche-id">F07</span>
-<h2>F07 — Tags — familles officielles</h2>
-<p>F07 — Tags — Familles officielles par cas d&#x27;usage</p>
-<p>Catégorie : Composants    |    Usage : Configuration · Reporting</p>
-<h2>Principe général — recommandations vs obligations</h2>
-<p>INSTRUCTION AGENT : les familles de tags ci-dessous sont des RECOMMANDATIONS FORTES de la Méthode Éloi — pas des lois immuables. Le client peut utiliser d&#x27;autres noms de familles s&#x27;il a une raison valable. L&#x27;agent doit proposer les familles officielles en premier, expliquer pourquoi elles sont meilleures, mais accepter les choix du client si celui-ci insiste.</p>
-<p>➜ L&#x27;agent propose, explique, conseille — mais ne bloque jamais un choix du client sauf si c&#x27;est marqué INTERDIT.</p>
-<h3>Familles officielles par cas d&#x27;usage</h3>
-<h4>Suivi de chantier</h4>
-<p>✅ RECOMMANDÉ — SUIVI DE CHANTIER</p>
-<p>Ces familles sont la Méthode Éloi — fortement conseillées. Autres noms acceptés si le client a une bonne raison.</p>
-<p>FAM_01 = &quot;Nature&quot;   ex: Visite, Contrôle, Sécurité, Observation</p>
-<p>FAM_02 = &quot;Zone&quot;   ex: RDC, R+1, Façade Est, Bâtiment A</p>
-<p>FAM_03 = &quot;Activité&quot;   ex: CFO, CFA, GO, VRD, Plomberie</p>
-<h4>OPR</h4>
-<p>✅ RECOMMANDÉ — OPR</p>
-<p>Ces familles sont la Méthode Éloi — fortement conseillées. Autres noms acceptés si le client a une bonne raison.</p>
-<p>FAM_01 = &quot;Zone&quot;   ex: RDC, R+1, Bâtiment A, Appartement 12</p>
-<p>FAM_02 = &quot;Activité&quot;   ex: CFO, CFA, GO, Plomberie, Peinture</p>
-<p>❌ INTERDIT : Famille &quot;Nature&quot; en OPR — tout est réserve — cette famille n&#x27;apporte aucune valeur et surcharge les rapports</p>
-<p>Si le client veut une autre famille (ex : &quot;Catégorie&quot;, &quot;Phase&quot;, &quot;Criticité&quot;) → c&#x27;est DÉCONSEILLÉ mais possible. Signaler le risque sur le reporting puis accepter.</p>
-<h4>FNC</h4>
-<p>✅ RECOMMANDÉ — FNC</p>
-<p>Ces familles sont la Méthode Éloi — fortement conseillées. Autres noms acceptés si le client a une bonne raison.</p>
-<p>FAM_01 = &quot;Type FNC&quot;   ex: Qualité, Sécurité, Documentaire, Délai</p>
-<p>FAM_02 = &quot;Zone&quot;   ex: Tronçon A, Zone 1, Bâtiment C</p>
-<p>FAM_03 = &quot;Activité&quot;   ex: GO, CFA, CFO, VRD</p>
-<p>FAM_04 = &quot;Criticité (opt.)&quot;   ex: Mineure, Majeure, Bloquante</p>
-<h4>CRR</h4>
-<p>✅ RECOMMANDÉ — CRR</p>
-<p>Ces familles sont la Méthode Éloi — fortement conseillées. Autres noms acceptés si le client a une bonne raison.</p>
-<p>FAM_01 = &quot;Section&quot;   ex: Administratif, Sécurité, Avancement, OS, MOA</p>
-<p>FAM_02 = &quot;Sous-section (opt.)&quot;   ex: À définir selon le format du client</p>
-<h4>QSE / Audit</h4>
-<p>✅ RECOMMANDÉ — QSE / AUDIT</p>
-<p>Ces familles sont la Méthode Éloi — fortement conseillées. Autres noms acceptés si le client a une bonne raison.</p>
-<p>FAM_01 = &quot;Nature QSE&quot;   ex: Sécurité, Qualité, Environnement</p>
-<p>FAM_02 = &quot;Zone&quot;   ex: Zone chantier, Atelier, Extérieur</p>
-<p>FAM_03 = &quot;Gravité (opt.)&quot;   ex: Faible, Significatif, Critique</p>
-<h3>Règles absolues sur les tags — celles-ci sont des INTERDITS réels</h3>
-<p>Contrairement aux noms de familles (recommandations), ces règles sont des interdits structurels.</p>
-<p>❌ INTERDIT : 0 tag dans un projet — sans tags, les rapports sont vides et le projet inexploitable (Anti-pattern #1, F22)</p>
-<p>❌ INTERDIT : Nom d&#x27;une entreprise comme famille d&#x27;Activité — les entreprises changent, les activités restent — crée une incohérence structurelle</p>
-<p>❌ INTERDIT : Mélanger deux logiques métier dans un même espace de tags — voir F02 — 1 espace = 1 cas d&#x27;usage</p>
-<h3>Comment réagir face à un client qui veut d&#x27;autres noms de familles</h3>
-<table>
-<tr><td>Niveau</td><td>Signification</td><td>Comportement agent</td></tr>
-<tr><td>✅ RECOMMANDÉ</td><td>Famille officielle Méthode Éloi — meilleure pratique</td><td>Proposer en premier, expliquer les avantages</td></tr>
-<tr><td>⚠ DÉCONSEILLÉ</td><td>Possible mais sous-optimal — risque identifié</td><td>Signaler le risque, accepter si le client insiste</td></tr>
-<tr><td>❌ INTERDIT</td><td>Crée un problème structurel certain — ne fonctionne pas</td><td>Refuser, expliquer pourquoi, proposer une alternative</td></tr>
-<tr><td>Situation</td><td>Réponse de l&#x27;agent</td></tr>
-<tr><td>Client veut &quot;Catégorie&quot; au lieu de &quot;Nature&quot;</td><td>Accepter. Signaler que les rapports parleront de &quot;Catégorie&quot; au lieu de &quot;Nature&quot; — aucun risque.</td></tr>
-<tr><td>Client veut &quot;Discipline&quot; au lieu de &quot;Activité&quot;</td><td>Accepter. Recommander de garder les mêmes valeurs (CFO, CFA...).</td></tr>
-<tr><td>Client veut &quot;Phase&quot; comme famille en OPR</td><td>Accepter avec avertissement : les phases changent en cours de projet, risque de tags obsolètes.</td></tr>
-<tr><td>Client veut mettre &quot;Nature&quot; en OPR</td><td>Déconseiller fortement (tout est réserve), mais accepter si le client insiste.</td></tr>
-<tr><td>Client veut 4 familles au lieu de 2 en OPR</td><td>Accepter si les familles ont du sens. Vérifier que le rapport attendu en bénéficie.</td></tr>
-<tr><td>Client veut 0 tag</td><td>Refuser — interdit absolu. Expliquer Anti-pattern #1.</td></tr>
-</table>
-</div>
-<div class="fiche" id="F08">
-<span class="fiche-id">F08</span>
-<h2>F08 — Statuts & Workflows — valeurs figées</h2>
-<p>F08 — Statuts &amp; Workflows — VALEURS OFFICIELLES FIGÉES</p>
-<p>Catégorie : Composants    |    Usage : Configuration · Formation</p>
-<h2>Règles sur le nombre de statuts</h2>
-<p>INSTRUCTION AGENT : ces trois règles sont des faits absolus sur Bulldozair. Ne jamais les contredire, nuancer ou reformuler.</p>
-<p>LES 3 RÈGLES — À RESTITUER MOT POUR MOT</p>
-<p>RÈGLE 1 — LIMITE TECHNIQUE ABSOLUE DE BULLDOZAIR</p>
-<p>MAX_TECHNIQUE = &quot;16 statuts maximum par espace — limite imposée par Bulldozair, impossible d&#x27;en créer davantage.&quot;</p>
-<p>❌ INTERDIT DE DIRE : &quot;Bulldozair te laisse mettre autant de statuts que tu veux&quot; — c&#x27;est FAUX.</p>
-<p>RÈGLE 2 — RECOMMANDATION MÉTHODE ÉLOI</p>
-<p>RECOMMANDATION = &quot;5 à 6 statuts — au-delà, le workflow est abandonné par les équipes terrain.&quot;</p>
-<p>RÈGLE 3 — EXCEPTION FNC</p>
-<p>EXCEPTION = &quot;Les FNC sont le seul cas d&#x27;usage autorisé à 6 statuts — tous les autres restent à 4 statuts.&quot;</p>
-<p>🚫 CE QUE L&#x27;AGENT NE DOIT JAMAIS DIRE</p>
-<p>&quot;Bulldozair te laisse mettre autant de statuts que tu veux&quot; → FAUX — limite = 16</p>
-<p>&quot;La limite n&#x27;est pas technique&quot; → FAUX — 16 est une limite technique imposée par l&#x27;outil</p>
-<p>&quot;Tu peux créer autant de statuts que nécessaire&quot; → FAUX — max 16, recommandé 5-6</p>
-<h3>WORKFLOWS OFFICIELS — valeurs exactes par cas d&#x27;usage</h3>
-<p>INSTRUCTION AGENT : recopier les valeurs entre guillemets caractère par caractère. Aucune reformulation.</p>
-<h4>Suivi de chantier — 4 statuts</h4>
-<p>✅ WORKFLOW OFFICIEL — SUIVI DE CHANTIER</p>
-<p>INSTRUCTION AGENT : copier ces valeurs EXACTEMENT. Aucune reformulation autorisée.</p>
-<p>STATUT_1 = &quot;À faire&quot;</p>
-<p>STATUT_2 = &quot;À valider&quot;</p>
-<p>STATUT_3 = &quot;Refusé&quot;</p>
-<p>STATUT_4 = &quot;Terminé&quot;</p>
-<p>SÉQUENCE : (1) &quot;À faire&quot; → (2) &quot;À valider&quot; → (3) &quot;Refusé&quot; → (4) &quot;Terminé&quot;</p>
-<p>❌ INTERDITS : &quot;Nouveau&quot;, &quot;En cours&quot;, &quot;En attente&quot;, &quot;Ouvert&quot;, &quot;Clôturé&quot;</p>
-<h4>OPR — 4 statuts</h4>
-<p>✅ WORKFLOW OFFICIEL — OPR</p>
-<p>INSTRUCTION AGENT : copier ces valeurs EXACTEMENT. Aucune reformulation autorisée.</p>
-<p>STATUT_1 = &quot;À lever&quot;</p>
-<p>STATUT_2 = &quot;À valider (MOA)&quot;</p>
-<p>STATUT_3 = &quot;Refusée&quot;</p>
-<p>STATUT_4 = &quot;Terminée&quot;</p>
-<p>SÉQUENCE : (1) &quot;À lever&quot; → (2) &quot;À valider (MOA)&quot; → (3) &quot;Refusée&quot; → (4) &quot;Terminée&quot;</p>
-<p>❌ INTERDITS : &quot;Nouveau&quot;, &quot;En cours&quot;, &quot;En attente&quot;, &quot;Levée en cours&quot;, &quot;Levée proposée&quot;, &quot;Levée validée&quot;, &quot;À vérifier&quot;, &quot;Réservé&quot;</p>
-<h4>CRR — 3 statuts</h4>
-<p>✅ WORKFLOW OFFICIEL — CRR</p>
-<p>INSTRUCTION AGENT : copier ces valeurs EXACTEMENT. Aucune reformulation autorisée.</p>
-<p>STATUT_1 = &quot;Nouveau&quot;</p>
-<p>STATUT_2 = &quot;En cours&quot;</p>
-<p>STATUT_3 = &quot;Terminé&quot;</p>
-<p>SÉQUENCE : (1) &quot;Nouveau&quot; → (2) &quot;En cours&quot; → (3) &quot;Terminé&quot;</p>
-<p>❌ INTERDITS : &quot;À faire&quot;, &quot;En attente&quot;, &quot;Validé&quot;, &quot;Clôturé&quot;</p>
-<h4>FNC — 6 statuts (seul cas autorisé à 6)</h4>
-<p>✅ WORKFLOW OFFICIEL — FNC</p>
-<p>INSTRUCTION AGENT : copier ces valeurs EXACTEMENT. Aucune reformulation autorisée.</p>
-<p>STATUT_1 = &quot;Ouverte&quot;</p>
-<p>STATUT_2 = &quot;En analyse&quot;</p>
-<p>STATUT_3 = &quot;En traitement&quot;</p>
-<p>STATUT_4 = &quot;À valider&quot;</p>
-<p>STATUT_5 = &quot;Close&quot;</p>
-<p>STATUT_6 = &quot;Clôture documentaire&quot;</p>
-<p>SÉQUENCE : (1) &quot;Ouverte&quot; → (2) &quot;En analyse&quot; → (3) &quot;En traitement&quot; → (4) &quot;À valider&quot; → (5) &quot;Close&quot; → (6) &quot;Clôture documentaire&quot;</p>
-<p>❌ INTERDITS : &quot;Ouvert&quot;, &quot;En cours&quot;, &quot;Terminé&quot;, &quot;Clôturé&quot;</p>
-<h4>QSE / Audit — 4 statuts</h4>
-<p>✅ WORKFLOW OFFICIEL — QSE / AUDIT</p>
-<p>INSTRUCTION AGENT : copier ces valeurs EXACTEMENT. Aucune reformulation autorisée.</p>
-<p>STATUT_1 = &quot;Constat&quot;</p>
-<p>STATUT_2 = &quot;À traiter&quot;</p>
-<p>STATUT_3 = &quot;À valider&quot;</p>
-<p>STATUT_4 = &quot;Terminé&quot;</p>
-<p>SÉQUENCE : (1) &quot;Constat&quot; → (2) &quot;À traiter&quot; → (3) &quot;À valider&quot; → (4) &quot;Terminé&quot;</p>
-<p>❌ INTERDITS : &quot;Nouveau&quot;, &quot;En cours&quot;, &quot;Résolu&quot;, &quot;Clôturé&quot;</p>
-<p>⚠ Tout statut non listé ci-dessus est une invention. L&#x27;agent applique le workflow le plus proche parmi les 5 officiels — il n&#x27;en crée jamais un nouveau.</p>
-<p>➜ Réponse correcte à &#x27;Combien de statuts max ?&#x27; → &#x27;16 maximum technique, 5-6 recommandé Méthode Éloi, 4 pour les cas standard, 6 pour les FNC uniquement.&#x27;</p>
-<table>
-<tr><td>Règle</td><td>Valeur exacte</td><td>Nature</td></tr>
-<tr><td>Limite technique Bulldozair</td><td>16 statuts MAXIMUM — impossible de dépasser</td><td>Fait technique — non négociable</td></tr>
-<tr><td>Recommandation Méthode Éloi</td><td>5 à 6 statuts</td><td>Bonne pratique terrain</td></tr>
-<tr><td>Exception FNC</td><td>6 statuts autorisés</td><td>Seul cas d&#x27;usage à 6</td></tr>
-<tr><td>Statut final obligatoire</td><td>&quot;Terminé&quot; ou &quot;Terminée&quot; selon le cas d&#x27;usage</td><td>Toujours présent</td></tr>
-</table>
-</div>
-<div class="fiche" id="F09">
-<span class="fiche-id">F09</span>
-<h2>F09 — Formulaires</h2>
-<p>F09 — Les formulaires</p>
-<p>Catégorie : Composants    |    Usage : Configuration · Formation</p>
-<h2>Formulaires : quand les utiliser ?</h2>
-<p>Un formulaire sert à structurer le contenu d&#x27;une tâche, imposer des champs obligatoires, standardiser une checklist et extraire des données précises. Il est attaché à la tâche, pas un objet autonome. Il est lié au compte, pas au projet.</p>
-<h3>Quand utiliser un formulaire ?</h3>
-<p>Checklist normée (QSE, sécurité, qualité)</p>
-<p>Plan de contrôle technique (armatures, coffrage, étanchéité)</p>
-<p>Audit d&#x27;équipement</p>
-<p>Inspection structurée avec exigence normative</p>
-<p>Besoin de champs obligatoires pour la saisie</p>
-<h3>Quand NE PAS utiliser un formulaire ?</h3>
-<p>OPR — saisie trop lente, nuit à la productivité</p>
-<p>CRR — les tâches structurent déjà l&#x27;information</p>
-<p>Observations simples — surcharge inutile</p>
-<p>Situations à forte volumétrie (OPR, suivi)</p>
-<h3>Règles de construction</h3>
-<p>Rester simple : moins de 20 champs</p>
-<p>Diviser en plusieurs formulaires si besoin (plutôt qu&#x27;un de 80 champs)</p>
-<p>Penser l&#x27;export Excel/CSV dès la conception</p>
-<p>Limiter les champs obligatoires à l&#x27;essentiel</p>
-<p>Tester le formulaire sur le terrain avant déploiement</p>
-<p>➜ Plus un formulaire est simple, meilleur est son usage terrain.</p>
-</div>
-<div class="fiche" id="F10">
-<span class="fiche-id">F10</span>
-<h2>F10 — Plans, modèles 3D et SIG</h2>
-<p>F10 — Plans, modèles 3D et supports cartographiques</p>
-<p>Catégorie : Composants    |    Usage : Configuration · Setup étape 7</p>
-<p>CORRESPONDANCES TERMINOLOGIQUES — INSTRUCTION AGENT</p>
-<p>Ces termes sont des synonymes exacts dans Bulldozair. Une question avec l&#x27;un de ces mots = répondre avec cette fiche.</p>
-<p>ALIASES &quot;Modèle 3D&quot; : IFC = BIM = modèle numérique = maquette 3D = fichier 3D = modèle BIM = 3D  → même chose, même réponse.</p>
-<p>ALIASES &quot;Plan 2D&quot; : PDF plan = plan PDF = fond de plan = plan tuilé = plan d&#x27;étage = plan de masse = plan DWG exporté PDF  → même chose, même réponse.</p>
-<p>ALIASES &quot;Fond de carte&quot; : SIG = GeoJSON = carte géographique = géolocalisation = fond cartographique = carte satellite = plan géoréférencé  → même chose, même réponse.</p>
-<h2>Les 3 types de supports dans Bulldozair</h2>
-<p>Bulldozair supporte 3 types de supports : les plans 2D (PDF), les fonds de carte SIG (GeoJSON), et les modèles 3D (IFC/BIM). Ils sont superposables dans le même espace.</p>
-<h3>Peut-on charger des modèles 3D dans Bulldozair ?</h3>
-<p>✅ OUI — Bulldozair supporte nativement les fichiers IFC (modèles 3D / BIM). On peut charger un modèle 3D, naviguer dedans sur tablette ou desktop, et épingler des tâches directement sur le modèle.</p>
-<p>Réponse complète à donner à l&#x27;utilisateur :</p>
-<p>&quot;Oui. Bulldozair supporte les fichiers IFC (modèles 3D / BIM). Tu peux charger ton modèle, naviguer dedans sur tablette, et épingler des tâches directement sur la maquette. Format requis : IFC. Les plans 2D PDF et le modèle 3D sont superposables dans le même espace.&quot;</p>
-<h3>Détail par type de support</h3>
-<h4>Plan 2D — PDF</h4>
-<h4>Fond de carte SIG — GeoJSON</h4>
-<h4>Modèle 3D — IFC / BIM</h4>
-<h3>Questions à poser lors du setup (étape 7)</h3>
-<p>Avez-vous des plans PDF par niveau ? (combien de niveaux ?)</p>
-<p>Avez-vous un fond de carte géoréférencé ? (projet extérieur ?)</p>
-<p>Avez-vous une maquette BIM / modèle IFC ? (format IFC disponible ?)</p>
-<p>Voulez-vous superposer plusieurs types de supports dans le même espace ?</p>
-<h3>Tableau de décision rapide</h3>
-<p>⚠ DWG et DXF ne sont pas supportés directement — exporter en PDF avant import.</p>
-<p>➜ Source : F10 — Pour tout terme parmi : 3D / IFC / BIM / maquette / modèle numérique / plan PDF / SIG / GeoJSON → répondre avec cette fiche.</p>
-<table>
-<tr><td>Type</td><td>Noms courants</td><td>Format</td><td>Usage typique</td><td>Disponible ?</td></tr>
-<tr><td>Plan 2D</td><td>Plan PDF, fond de plan, plan d&#x27;étage, plan tuilé</td><td>PDF</td><td>Tout projet bâtiment — niveaux, façades, plans de masse</td><td>✅ Oui — natif</td></tr>
-<tr><td>Fond de carte SIG</td><td>GeoJSON, carte géo, fond cartographique, SIG</td><td>GeoJSON</td><td>VRD, infrastructure, projets en extérieur</td><td>✅ Oui — natif</td></tr>
-<tr><td>Modèle 3D</td><td>IFC, BIM, maquette 3D, modèle numérique, fichier 3D</td><td>IFC</td><td>Projets BIM, lecture de maquette sur tablette terrain</td><td>✅ Oui — natif</td></tr>
-<tr><td>Paramètre</td><td>Valeur</td></tr>
-<tr><td>Format accepté</td><td>PDF uniquement (pas DWG, pas DXF)</td></tr>
-<tr><td>Organisation</td><td>1 PDF par niveau / par zone recommandé</td></tr>
-<tr><td>Superposition</td><td>Oui — plusieurs plans superposables</td></tr>
-<tr><td>Tuilage</td><td>Automatique à l&#x27;import</td></tr>
-<tr><td>Conseil</td><td>Exporter les plans en PDF A4 ou A3 avant import</td></tr>
-<tr><td>Paramètre</td><td>Valeur</td></tr>
-<tr><td>Format accepté</td><td>GeoJSON</td></tr>
-<tr><td>Usage</td><td>Projets extérieurs, VRD, infrastructure, réseaux</td></tr>
-<tr><td>Géoréférencement</td><td>Oui — coordonnées GPS intégrées</td></tr>
-<tr><td>Conseil</td><td>Utiliser si le projet couvre une zone géographique large</td></tr>
-<tr><td>Paramètre</td><td>Valeur</td></tr>
-<tr><td>Format accepté</td><td>IFC (Industry Foundation Classes)</td></tr>
-<tr><td>Autres noms</td><td>BIM, maquette 3D, modèle numérique, fichier 3D</td></tr>
-<tr><td>Navigation</td><td>Oui — navigation 3D sur tablette et desktop</td></tr>
-<tr><td>Épinglage de tâches</td><td>Oui — directement sur le modèle</td></tr>
-<tr><td>Superposition avec plans 2D</td><td>Oui — dans le même espace</td></tr>
-<tr><td>Taille recommandée</td><td>&lt; 500 Mo pour des performances optimales</td></tr>
-<tr><td>Conseil</td><td>Exporter depuis Revit / ArchiCAD en IFC2x3 ou IFC4</td></tr>
-<tr><td>Question client</td><td>Réponse Bulldozair</td></tr>
-<tr><td>Est-ce que je peux charger des modèles 3D ?</td><td>Oui — format IFC. Navigation 3D sur tablette et desktop.</td></tr>
-<tr><td>Est-ce que ça marche avec Revit ?</td><td>Oui — exporter en IFC depuis Revit, puis importer dans Bulldozair.</td></tr>
-<tr><td>Est-ce que je peux mettre un plan PDF ?</td><td>Oui — format natif. 1 PDF par niveau recommandé.</td></tr>
-<tr><td>Est-ce que ça supporte le BIM ?</td><td>Oui — IFC est le format BIM standard supporté.</td></tr>
-<tr><td>Puis-je avoir plan 2D ET modèle 3D dans le même espace ?</td><td>Oui — superposables nativement.</td></tr>
-<tr><td>Est-ce que ça fonctionne avec ArchiCAD ?</td><td>Oui — exporter en IFC depuis ArchiCAD.</td></tr>
-<tr><td>Est-ce que je peux utiliser Google Maps comme fond ?</td><td>Non — utiliser GeoJSON. Pas d&#x27;intégration Google Maps native.</td></tr>
-</table>
-</div>
-<div class="fiche" id="F11">
-<span class="fiche-id">F11</span>
-<h2>F11 — Reporting</h2>
-<p>F11 — Le reporting</p>
-<p>Catégorie : Composants    |    Usage : Configuration · Avant-vente</p>
-<h2>Le reporting : la finalité de tout projet Bulldozair</h2>
-<p>La structure du projet doit permettre de sortir le rapport désiré sans effort. Si ce n&#x27;est pas le cas, le projet est mal configuré.</p>
-<p>➜ Tout ce qui n&#x27;existe pas dans les tâches n&#x27;existera pas dans le rapport.</p>
-<h3>Types de rapports disponibles</h3>
-<h3>Conséquences d&#x27;une mauvaise structure</h3>
-<h3>La question clé avant tout démarrage</h3>
-<p>Quel rapport voulez-vous produire exactement ?</p>
-<p>Avez-vous un modèle Word/Excel existant ?</p>
-<p>Par quoi voulez-vous grouper les informations (zone, activité, entreprise) ?</p>
-<p>À qui est destiné ce rapport ? À quelle fréquence ?</p>
-<table>
-<tr><td>Type</td><td>Usage typique</td><td>Format</td></tr>
-<tr><td>Fiche de visite</td><td>Suivi de chantier hebdomadaire</td><td>PDF</td></tr>
-<tr><td>Rapport OPR</td><td>Liste des réserves par zone/activité</td><td>PDF / Word</td></tr>
-<tr><td>Rapport FNC</td><td>Non-conformités avec historique</td><td>PDF / Excel</td></tr>
-<tr><td>Rapport CRR</td><td>Tableau des points d&#x27;action de réunion</td><td>Word</td></tr>
-<tr><td>Rapport photo</td><td>Galerie illustrée des observations</td><td>PDF</td></tr>
-<tr><td>Export CSV</td><td>Analyse, croisements, Power BI</td><td>CSV</td></tr>
-<tr><td>Word custom</td><td>Rapport client sur modèle existant</td><td>DOCX avec balises</td></tr>
-<tr><td>Excel custom</td><td>Tableaux croisés dynamiques avancés</td><td>XLSX avec boucles</td></tr>
-<tr><td>Manque</td><td>Conséquence dans le rapport</td></tr>
-<tr><td>Pas de tags</td><td>Impossible de filtrer ou grouper</td></tr>
-<tr><td>Pas d&#x27;attribution</td><td>Impossible de trier par entreprise</td></tr>
-<tr><td>Pas de statut</td><td>Pas d&#x27;indicateur d&#x27;avancement</td></tr>
-<tr><td>Tâche = 50 observations</td><td>Rapport destructuré et illisible</td></tr>
-</table>
-</div>
-<div class="fiche" id="F12">
-<span class="fiche-id">F12</span>
-<h2>F12 — Cas d'usage : Suivi de chantier</h2>
-<p>F12 — Cas d&#x27;usage : Suivi de chantier</p>
-<p>Catégorie : Cas d&#x27;usage    |    Usage : Configuration · Delivery</p>
-<h2>Suivi de chantier — configuration officielle</h2>
-<p>Représente environ 70 % des projets. Objectif : vision claire, régulière et fiable de l&#x27;avancement du chantier.</p>
-<h3>Tags officiels</h3>
-<p>TAGS OFFICIELS — SUIVI DE CHANTIER</p>
-<p>INSTRUCTION AGENT : utiliser ces noms de familles EXACTEMENT. Ne pas en inventer d&#x27;autres.</p>
-<p>FAMILLE_1 = &quot;Nature&quot;  — Type d&#x27;observation</p>
-<p>Exemples de valeurs : Visite, Contrôle, Sécurité, Observation, FNC</p>
-<p>FAMILLE_2 = &quot;Zone&quot;  — Localisation</p>
-<p>Exemples de valeurs : RDC, R+1, Façade Est, Bâtiment A</p>
-<p>FAMILLE_3 = &quot;Activité&quot;  — Lot technique</p>
-<p>Exemples de valeurs : CFO, CFA, GO, VRD, Plomberie, CVC</p>
-<h3>Workflow officiel</h3>
-<p>WORKFLOW OFFICIEL — SUIVI DE CHANTIER</p>
-<p>INSTRUCTION AGENT : copier ces valeurs EXACTEMENT. Aucune reformulation autorisée.</p>
-<p>STATUT_1 = &quot;À faire&quot;</p>
-<p>STATUT_2 = &quot;À valider&quot;</p>
-<p>STATUT_3 = &quot;Refusé&quot;</p>
-<p>STATUT_4 = &quot;Terminé&quot;</p>
-<p>SÉQUENCE COMPLÈTE : (1) &quot;À faire&quot; → (2) &quot;À valider&quot; → (3) &quot;Refusé&quot; → (4) &quot;Terminé&quot;</p>
-<p>❌ VALEURS INTERDITES (ne jamais utiliser) : &quot;Nouveau&quot;, &quot;En cours&quot;, &quot;En attente&quot;</p>
-<h3>Autres paramètres</h3>
-<table>
-<tr><td>Paramètre</td><td>Valeur</td></tr>
-<tr><td>1 tâche =</td><td>1 observation unique</td></tr>
-<tr><td>Plans</td><td>PDF tuilés par niveau, superposables</td></tr>
-<tr><td>Formulaire</td><td>Non recommandé pour le suivi standard</td></tr>
-<tr><td>Rapport principal</td><td>Fiche de visite</td></tr>
-</table>
-</div>
-<div class="fiche" id="F13">
-<span class="fiche-id">F13</span>
-<h2>F13 — Cas d'usage : OPR</h2>
-<p>F13 — Cas d&#x27;usage : OPR</p>
-<p>Catégorie : Cas d&#x27;usage    |    Usage : Configuration · Delivery</p>
-<h2>OPR — Opérations Préalables à la Réception</h2>
-<p>Objectif : lever un maximum de réserves en un minimum de temps, de manière structurée, photographiée et attribuée.</p>
-<h3>Tags officiels</h3>
-<p>TAGS OFFICIELS — OPR</p>
-<p>INSTRUCTION AGENT : utiliser ces noms de familles EXACTEMENT. Ne pas en inventer d&#x27;autres.</p>
-<p>FAMILLE_1 = &quot;Zone&quot;  — Localisation de la réserve</p>
-<p>Exemples de valeurs : RDC, R+1, Bâtiment A, Cage B, Appartement 12</p>
-<p>FAMILLE_2 = &quot;Activité&quot;  — Lot technique concerné</p>
-<p>Exemples de valeurs : CFO, CFA, GO, Plomberie, Peinture, Revêtements</p>
-<p>⚠ La famille &quot;Nature&quot; est INTERDITE en OPR — tout est réserve.</p>
-<h3>Workflow officiel</h3>
-<p>WORKFLOW OFFICIEL — OPR</p>
-<p>INSTRUCTION AGENT : copier ces valeurs EXACTEMENT. Aucune reformulation autorisée.</p>
-<p>STATUT_1 = &quot;À lever&quot;</p>
-<p>STATUT_2 = &quot;À valider (MOA)&quot;</p>
-<p>STATUT_3 = &quot;Refusée&quot;</p>
-<p>STATUT_4 = &quot;Terminée&quot;</p>
-<p>SÉQUENCE COMPLÈTE : (1) &quot;À lever&quot; → (2) &quot;À valider (MOA)&quot; → (3) &quot;Refusée&quot; → (4) &quot;Terminée&quot;</p>
-<p>❌ VALEURS INTERDITES (ne jamais utiliser) : &quot;Nouveau&quot;, &quot;En cours&quot;, &quot;En attente&quot;, &quot;Levée en cours&quot;, &quot;Levée proposée&quot;, &quot;Levée validée&quot;, &quot;À vérifier&quot;, &quot;Réservé&quot;</p>
-<h3>Qui fait quoi</h3>
-<h3>Autres paramètres</h3>
-<p>⚠ Ne JAMAIS mélanger OPR et suivi de chantier dans le même espace (F02).</p>
-<table>
-<tr><td>Statut exact</td><td>Qui agit</td><td>Action</td></tr>
-<tr><td>&quot;À lever&quot;</td><td>Entreprise (Rapporteur)</td><td>Traite la réserve sur le terrain</td></tr>
-<tr><td>&quot;À valider (MOA)&quot;</td><td>MOE (Collaborateur)</td><td>Vérifie la levée, soumet à la MOA</td></tr>
-<tr><td>&quot;Refusée&quot;</td><td>MOE ou MOA (Admin)</td><td>Levée non acceptée, retour à l&#x27;entreprise</td></tr>
-<tr><td>&quot;Terminée&quot;</td><td>MOA (Admin)</td><td>Valide définitivement la réserve</td></tr>
-<tr><td>Paramètre</td><td>Valeur</td></tr>
-<tr><td>1 tâche =</td><td>1 réserve — une seule</td></tr>
-<tr><td>Plans</td><td>Indispensables et superposables</td></tr>
-<tr><td>Formulaire</td><td>INTERDIT — nuit à la rapidité de saisie</td></tr>
-<tr><td>Rapport</td><td>OPR standard ou Excel personnalisé (grands comptes)</td></tr>
-</table>
-</div>
-<div class="fiche" id="F14">
-<span class="fiche-id">F14</span>
-<h2>F14 — Cas d'usage : FNC</h2>
-<p>F14 — Cas d&#x27;usage : FNC</p>
-<p>Catégorie : Cas d&#x27;usage    |    Usage : Configuration · Delivery</p>
-<h2>FNC — Fiche de Non-Conformité</h2>
-<p>Projets grands comptes, infrastructures, industriels. Objectif : suivre des non-conformités contractuelles, auditables et historiées.</p>
-<h3>Tags officiels</h3>
-<p>TAGS OFFICIELS — FNC</p>
-<p>INSTRUCTION AGENT : utiliser ces noms de familles EXACTEMENT. Ne pas en inventer d&#x27;autres.</p>
-<p>FAMILLE_1 = &quot;Type FNC&quot;  — Catégorie</p>
-<p>Exemples de valeurs : Qualité, Sécurité, Documentaire, Délai</p>
-<p>FAMILLE_2 = &quot;Zone&quot;  — Localisation</p>
-<p>Exemples de valeurs : Tronçon A, Zone 1, Bâtiment C</p>
-<p>FAMILLE_3 = &quot;Activité&quot;  — Lot concerné</p>
-<p>Exemples de valeurs : GO, CFA, CFO, VRD</p>
-<p>FAMILLE_4 = &quot;Criticité&quot;  — Niveau de gravité (opt)</p>
-<p>Exemples de valeurs : Mineure, Majeure, Bloquante</p>
-<h3>Workflow officiel</h3>
-<p>WORKFLOW OFFICIEL — FNC</p>
-<p>INSTRUCTION AGENT : copier ces valeurs EXACTEMENT. Aucune reformulation autorisée.</p>
-<p>STATUT_1 = &quot;Ouverte&quot;</p>
-<p>STATUT_2 = &quot;En analyse&quot;</p>
-<p>STATUT_3 = &quot;En traitement&quot;</p>
-<p>STATUT_4 = &quot;À valider&quot;</p>
-<p>STATUT_5 = &quot;Close&quot;</p>
-<p>STATUT_6 = &quot;Clôture documentaire&quot;</p>
-<p>SÉQUENCE COMPLÈTE : (1) &quot;Ouverte&quot; → (2) &quot;En analyse&quot; → (3) &quot;En traitement&quot; → (4) &quot;À valider&quot; → (5) &quot;Close&quot; → (6) &quot;Clôture documentaire&quot;</p>
-<p>❌ VALEURS INTERDITES (ne jamais utiliser) : &quot;Ouvert&quot;, &quot;En cours&quot;, &quot;Terminé&quot;, &quot;Clôturé&quot;</p>
-<h3>Autres paramètres</h3>
-<table>
-<tr><td>Paramètre</td><td>Valeur</td></tr>
-<tr><td>1 tâche =</td><td>1 FNC — une seule non-conformité</td></tr>
-<tr><td>Rapport</td><td>PDF normé ou Excel selon cahier des charges</td></tr>
-<tr><td>Pièces jointes</td><td>Nombreuses — photos, documents de preuve</td></tr>
-</table>
-</div>
-<div class="fiche" id="F15">
-<span class="fiche-id">F15</span>
-<h2>F15 — Cas d'usage : CRR</h2>
-<p>F15 — Cas d&#x27;usage : CRR</p>
-<p>Catégorie : Cas d&#x27;usage    |    Usage : Configuration · Delivery</p>
-<h2>CRR — Compte Rendu de Réunion</h2>
-<p>Cas d&#x27;usage sous-estimé mais très puissant. Objectif : gérer toutes les décisions, actions et arbitrages d&#x27;une réunion.</p>
-<h3>Tags officiels</h3>
-<p>TAGS OFFICIELS — CRR</p>
-<p>INSTRUCTION AGENT : utiliser ces noms de familles EXACTEMENT. Ne pas en inventer d&#x27;autres.</p>
-<p>FAMILLE_1 = &quot;Section&quot;  — Grande section du CRR</p>
-<p>Exemples de valeurs : Administratif, Sécurité, Avancement, OS, MOA</p>
-<p>FAMILLE_2 = &quot;Sous-section&quot;  — Subdivision (optionnel)</p>
-<p>Exemples de valeurs : À définir selon le format du client</p>
-<h3>Workflow officiel</h3>
-<p>WORKFLOW OFFICIEL — CRR</p>
-<p>INSTRUCTION AGENT : copier ces valeurs EXACTEMENT. Aucune reformulation autorisée.</p>
-<p>STATUT_1 = &quot;Nouveau&quot;</p>
-<p>STATUT_2 = &quot;En cours&quot;</p>
-<p>STATUT_3 = &quot;Terminé&quot;</p>
-<p>SÉQUENCE COMPLÈTE : (1) &quot;Nouveau&quot; → (2) &quot;En cours&quot; → (3) &quot;Terminé&quot;</p>
-<p>❌ VALEURS INTERDITES (ne jamais utiliser) : &quot;À faire&quot;, &quot;En attente&quot;, &quot;Validé&quot;, &quot;Clôturé&quot;</p>
-<h3>Autres paramètres</h3>
-<table>
-<tr><td>Paramètre</td><td>Valeur</td></tr>
-<tr><td>1 tâche =</td><td>1 point d&#x27;action</td></tr>
-<tr><td>Attribution</td><td>Obligatoire — responsable du point</td></tr>
-<tr><td>Date d&#x27;échéance</td><td>Obligatoire</td></tr>
-<tr><td>Formulaire</td><td>Non</td></tr>
-<tr><td>Rapport</td><td>Tableau Word : Section / Tâche / Attribué à / Échéance / Statut</td></tr>
-</table>
-</div>
-<div class="fiche" id="F16">
-<span class="fiche-id">F16</span>
-<h2>F16 — Cas d'usage : QSE / Audit</h2>
-<p>F16 — Cas d&#x27;usage : QSE / Audit</p>
-<p>Catégorie : Cas d&#x27;usage    |    Usage : Configuration · Delivery</p>
-<h2>QSE / Audit — configuration officielle</h2>
-<h3>Tags officiels</h3>
-<p>TAGS OFFICIELS — QSE / AUDIT</p>
-<p>INSTRUCTION AGENT : utiliser ces noms de familles EXACTEMENT. Ne pas en inventer d&#x27;autres.</p>
-<p>FAMILLE_1 = &quot;Nature QSE&quot;  — Domaine</p>
-<p>Exemples de valeurs : Sécurité, Qualité, Environnement</p>
-<p>FAMILLE_2 = &quot;Zone&quot;  — Localisation</p>
-<p>Exemples de valeurs : Zone chantier, Atelier, Extérieur</p>
-<p>FAMILLE_3 = &quot;Gravité&quot;  — Opt.</p>
-<p>Exemples de valeurs : Faible, Significatif, Critique</p>
-<h3>Workflow officiel</h3>
-<p>WORKFLOW OFFICIEL — QSE / AUDIT</p>
-<p>INSTRUCTION AGENT : copier ces valeurs EXACTEMENT. Aucune reformulation autorisée.</p>
-<p>STATUT_1 = &quot;Constat&quot;</p>
-<p>STATUT_2 = &quot;À traiter&quot;</p>
-<p>STATUT_3 = &quot;À valider&quot;</p>
-<p>STATUT_4 = &quot;Terminé&quot;</p>
-<p>SÉQUENCE COMPLÈTE : (1) &quot;Constat&quot; → (2) &quot;À traiter&quot; → (3) &quot;À valider&quot; → (4) &quot;Terminé&quot;</p>
-<p>❌ VALEURS INTERDITES (ne jamais utiliser) : &quot;Nouveau&quot;, &quot;En cours&quot;, &quot;Résolu&quot;, &quot;Clôturé&quot;</p>
-</div>
-<div class="fiche" id="F17">
-<span class="fiche-id">F17</span>
-<h2>F17 — Cas d'usage : SIG Infrastructure</h2>
-<p>F17 — Cas d&#x27;usage : Infrastructure linéaire &amp; SIG</p>
-<p>Catégorie : Cas d&#x27;usage    |    Usage : Configuration · Technique</p>
-<h2>Infrastructure linéaire &amp; SIG</h2>
-<p>Obligatoire pour routes, rails, réseaux, canalisations, VRD étendus. La localisation se fait sur carte plutôt que sur plan.</p>
-<h3>Configuration recommandée</h3>
-<h3>Workflow de préparation du fond de carte</h3>
-<p>Obtenir le DWG du projet</p>
-<p>Convertir en SHP (Shapefile)</p>
-<p>Convertir en GeoJSON, projection WGS84</p>
-<p>Vérifier poids &lt; 15 Mo (simplifier si nécessaire)</p>
-<p>Uploader dans Bulldozair &gt; Fond de carte</p>
-<p>Valider la projection avec 2–3 points de contrôle terrain</p>
-<p>⚠ Un GeoJSON mal projeté (non WGS84) placera toutes les tâches au mauvais endroit sur la carte.</p>
-<table>
-<tr><td>Paramètre</td><td>Valeur</td></tr>
-<tr><td>1 tâche =</td><td>1 point singulier (PK, défaut, constat...)</td></tr>
-<tr><td>Localisation</td><td>GPS sur fond GeoJSON</td></tr>
-<tr><td>Support cartographique</td><td>GeoJSON WGS84 &lt; 15 Mo</td></tr>
-<tr><td>Tags</td><td>Tronçon / Nature / Activité</td></tr>
-<tr><td>Workflow</td><td>Similaire suivi ou contrôle QSE</td></tr>
-</table>
-</div>
-<div class="fiche" id="F18">
-<span class="fiche-id">F18</span>
-<h2>F18 — Méthode Éloi — 15 étapes</h2>
-<p>F18 — Méthode Éloi — Les 15 étapes</p>
-<p>Catégorie : Méthode    |    Usage : Formation · Onboarding · Delivery</p>
-<h2>Les 15 étapes de la Méthode Éloi</h2>
-<p>Méthodologie empirique construite sur des centaines de projets. Elle garantit qu&#x27;un projet Bulldozair soit structuré, cohérent, maintenable et capable de produire un reporting fiable.</p>
-<p>➜ L&#x27;étape 3 (reporting) conditionne toutes les autres. Ne jamais la sauter.</p>
-<table>
-<tr><td>#</td><td>Étape</td><td>Question clé</td></tr>
-<tr><td>1</td><td>Comprendre le contexte</td><td>À quel stade êtes-vous du projet ?</td></tr>
-<tr><td>2</td><td>Identifier le cas d&#x27;usage</td><td>Suivi, OPR, FNC, CRR, Audit ?</td></tr>
-<tr><td>3</td><td>Définir le reporting</td><td>Montrez-moi le rapport que vous voulez sortir.</td></tr>
-<tr><td>4</td><td>Découper en espaces</td><td>Quelle volumétrie prévisionnelle ? Combien d&#x27;utilisateurs ?</td></tr>
-<tr><td>5</td><td>Concevoir les tags</td><td>Quelles dimensions voulez-vous filtrer dans vos rapports ?</td></tr>
-<tr><td>6</td><td>Définir les statuts</td><td>Comment le workflow de validation fonctionne-t-il ?</td></tr>
-<tr><td>7</td><td>Définir les formulaires</td><td>Avez-vous des checklists normées à respecter ?</td></tr>
-<tr><td>8</td><td>Configurer l&#x27;équipe</td><td>Qui fait quoi ? Qui voit quoi ?</td></tr>
-<tr><td>9</td><td>Paramétrer le partage par défaut</td><td>Qui doit voir toutes les tâches par défaut ?</td></tr>
-<tr><td>10</td><td>Ajouter plans / 3D / SIG</td><td>Les plans sont-ils superposables ?</td></tr>
-<tr><td>11</td><td>Construire le template</td><td>Valider tags + statuts + partage par défaut.</td></tr>
-<tr><td>12</td><td>Créer une tâche exemple</td><td>Montrer concrètement le bon usage.</td></tr>
-<tr><td>13</td><td>Générer un rapport exemple</td><td>Valider que la structure produit le bon rapport.</td></tr>
-<tr><td>14</td><td>Former les utilisateurs</td><td>Formation collecte (terrain) + formation config (référents).</td></tr>
-<tr><td>15</td><td>Suivi post-démarrage</td><td>Corriger les dérives pendant 1 à 3 semaines.</td></tr>
-</table>
-</div>
-<div class="fiche" id="F19">
-<span class="fiche-id">F19</span>
-<h2>F19 — Découpage des espaces</h2>
-<p>F19 — Découpage en espaces</p>
-<p>Catégorie : Méthode    |    Usage : Configuration · Avant-vente</p>
-<h2>Quand et comment découper un projet en plusieurs espaces ?</h2>
-<h3>Critères de split obligatoire</h3>
-<h3>Exemples de découpages courants</h3>
-<p>Grand chantier bâtiment : 1 espace par bâtiment ou par phase</p>
-<p>Projet infrastructure : 1 espace par tronçon ou par lot</p>
-<p>Projet multilots : 1 espace OPR par lot technique</p>
-<p>Projet multi-sites : 1 espace par site ou par gare</p>
-<h3>Ce qu&#x27;il ne faut jamais mettre dans le même espace</h3>
-<p>Suivi de chantier + OPR</p>
-<p>FNC + CRR</p>
-<p>Contrôles internes + points d&#x27;action client</p>
-<p>➜ En cas de doute sur le découpage : préférer trop d&#x27;espaces que pas assez. Il est plus facile de fusionner la lecture via les rapports que de décomposer un espace saturé.</p>
-<table>
-<tr><td>Critère</td><td>Seuil</td><td>Action</td></tr>
-<tr><td>Volumétrie</td><td>≥ 5 000 tâches</td><td>Split par zone, bâtiment, phase ou lot</td></tr>
-<tr><td>Équipe</td><td>≥ 20 utilisateurs</td><td>Split par équipe ou lot</td></tr>
-<tr><td>Cas d&#x27;usage</td><td>2 logiques métier différentes</td><td>Toujours séparer</td></tr>
-<tr><td>Organisation terrain</td><td>Gares, bâtiments, tronçons distincts</td><td>Split recommandé</td></tr>
-</table>
-</div>
-<div class="fiche" id="F20">
-<span class="fiche-id">F20</span>
-<h2>F20 — Template projet</h2>
-<p>F20 — Le template projet</p>
-<p>Catégorie : Méthode    |    Usage : Configuration · Delivery</p>
-<h2>Construire et utiliser un template projet</h2>
-<p>Un template permet de démarrer chaque nouveau projet avec une structure cohérente, sans reconfigurer de zéro. Il garantit l&#x27;homogénéité entre projets et réduit les erreurs de setup.</p>
-<h3>Ce que le template DOIT contenir</h3>
-<p>Tags (toutes les familles avec leurs valeurs)</p>
-<p>Statuts (workflow complet)</p>
-<p>Groupe de partage par défaut</p>
-<p>Paramètres essentiels de l&#x27;espace</p>
-<h3>Ce que le template NE DOIT PAS contenir</h3>
-<p>Plans — ils sont spécifiques à chaque projet</p>
-<p>Formulaires — ils sont liés au compte, pas au projet</p>
-<p>Tâches — un template ne contient pas de données</p>
-<h3>Templates à créer par cas d&#x27;usage</h3>
-<p>➜ Valider le template sur un rapport exemple avant de le déployer sur de vrais projets.</p>
-<table>
-<tr><td>Template</td><td>Contenu clé</td></tr>
-<tr><td>Template Suivi de chantier</td><td>Tags Nature/Zone/Activité + workflow 4 statuts</td></tr>
-<tr><td>Template OPR</td><td>Tags Zone/Activité + workflow MOA/MOE</td></tr>
-<tr><td>Template FNC</td><td>Tags Type/Zone/Activité/Criticité + workflow 6 statuts</td></tr>
-<tr><td>Template CRR</td><td>Tags Section/Sous-section + workflow 3 statuts</td></tr>
-<tr><td>Template QSE</td><td>Tags Nature QSE/Zone/Gravité + workflow 4 statuts</td></tr>
-</table>
-</div>
-<div class="fiche" id="F21">
-<span class="fiche-id">F21</span>
-<h2>F21 — Formation utilisateurs</h2>
-<p>F21 — Formation des utilisateurs</p>
-<p>Catégorie : Méthode    |    Usage : Onboarding · Delivery</p>
-<h2>Former les équipes : deux formations distinctes</h2>
-<p>⚠ Ne jamais mélanger la formation collecte et la formation configuration dans la même session.</p>
-<h3>Formation 1 — Collecte de données (terrain)</h3>
-<p>Public : tous les utilisateurs terrain (collaborateurs, rapporteurs).</p>
-<p>Créer une tâche (1 observation = 1 tâche)</p>
-<p>Prendre et ajouter des photos</p>
-<p>Choisir les bons tags</p>
-<p>Positionner sur le plan</p>
-<p>Écrire un commentaire clair et court</p>
-<p>Changer le statut</p>
-<p>Attribuer une tâche</p>
-<h3>Formation 2 — Configuration (référents)</h3>
-<p>Public : chefs de projet, admins, référents Bulldozair.</p>
-<p>Créer un espace et le configurer</p>
-<p>Créer et nommer les tags</p>
-<p>Paramétrer le workflow</p>
-<p>Gérer les rôles et les accès</p>
-<p>Uploader les plans</p>
-<p>Configurer le partage par défaut</p>
-<p>Générer et lire les rapports</p>
-<h3>Suivi post-démarrage (1 à 3 semaines)</h3>
-<p>Vérifier que les tags sont correctement utilisés</p>
-<p>Corriger les tâches multi-observations</p>
-<p>S&#x27;assurer que les statuts évoluent</p>
-<p>Analyser les premiers rapports</p>
-<p>Ajuster le template si nécessaire</p>
-</div>
-<div class="fiche" id="F22">
-<span class="fiche-id">F22</span>
-<h2>F22 — Anti-pattern : Absence de tags</h2>
-<p>F22 — Anti-pattern #1 : Absence de tags</p>
-<p>Catégorie : Anti-patterns    |    Usage : Q&amp;A · Diagnostic</p>
-<h2>Anti-pattern #1 — Absence de tags</h2>
-<p>C&#x27;est la cause n°1 d&#x27;échec dans Bulldozair. Un projet sans tags est inexploitable.</p>
-<h3>Symptômes</h3>
-<p>Impossible de filtrer les tâches</p>
-<p>Rapports illisibles ou vides</p>
-<p>Aucune segmentation par zone, activité ou nature</p>
-<p>Données plates — tout est au même niveau</p>
-<p>Projet progressivement abandonné par les équipes</p>
-<h3>Pourquoi cela arrive ?</h3>
-<p>L&#x27;utilisateur ne sait pas ce qu&#x27;est un tag</p>
-<p>Absence de template projet avec tags pré-créés</p>
-<p>Confusion entre tags, statuts et formulaires</p>
-<p>Setup fait sans accompagnement</p>
-<h3>Solution Méthode Éloi</h3>
-<p>Définir les tags APRÈS avoir vu le rapport attendu</p>
-<p>Imposer au minimum 2 familles, idéalement 3</p>
-<p>Structurer : Nature / Zone / Activité</p>
-<p>Créer un template avec tags pré-créés pour chaque cas d&#x27;usage</p>
-<p>Former les utilisateurs sur le rôle des tags dans le reporting</p>
-<p>✔ Message agent : « Aucun tag détecté dans cet espace. Vous devez en ajouter au moins 2 pour rendre le projet exploitable. Voulez-vous que je vous aide à les définir ? »</p>
-</div>
-<div class="fiche" id="F23">
-<span class="fiche-id">F23</span>
-<h2>F23 — Anti-pattern : Tâches fourre-tout</h2>
-<p>F23 — Anti-pattern #2 : Tâches fourre-tout</p>
-<p>Catégorie : Anti-patterns    |    Usage : Q&amp;A · Diagnostic</p>
-<h2>Anti-pattern #2 — Tâches fourre-tout</h2>
-<p>Deuxième erreur la plus courante. Une tâche regroupant plusieurs observations est inutilisable pour le reporting et le workflow.</p>
-<h3>Symptômes</h3>
-<p>40 photos dans une seule tâche</p>
-<p>20 problèmes différents mélangés</p>
-<p>Impossible de trier, filtrer ou attribuer précisément</p>
-<p>Workflow inutilisable (qu&#x27;est-ce qui est « Terminé » ?)</p>
-<p>Rapports avec 1 ligne = 50 éléments</p>
-<h3>Pourquoi cela arrive ?</h3>
-<p>Confusion entre Bulldozair et WhatsApp / messagerie</p>
-<p>Utilisateurs pressés, sans formation</p>
-<p>Mauvaise compréhension du concept de granularité</p>
-<h3>Solution</h3>
-<p>➜ 1 tâche = 1 observation = 1 responsable = 1 statut = 1 ligne dans le rapport.</p>
-<p>En pratique : lors d&#x27;une visite, créer autant de tâches que d&#x27;observations. Même si cela semble long, c&#x27;est la condition pour que le reporting soit exploitable.</p>
-<p>✔ Message agent : « Plusieurs observations distinctes semblent regroupées dans cette tâche. La bonne pratique est de créer une tâche par observation. Souhaitez-vous de l&#x27;aide pour restructurer ? »</p>
-</div>
-<div class="fiche" id="F24">
-<span class="fiche-id">F24</span>
-<h2>F24 — Anti-pattern : Statuts & workflow</h2>
-<p>F24 — Anti-patterns #3 à #7 : Statuts &amp; workflow</p>
-<p>Catégorie : Anti-patterns    |    Usage : Q&amp;A · Diagnostic</p>
-<h2>Anti-patterns liés aux statuts et au workflow</h2>
-<h3>AP #3 — Pas de statuts (ou statuts non utilisés)</h3>
-<p>Symptômes : 100 % des tâches en statut initial, aucun avancement lisible</p>
-<p>Cause : workflow mal configuré, trop complexe, ou absence de formation</p>
-<p>Solution : 4 à 6 statuts simples, adaptés au cas d&#x27;usage</p>
-<h3>AP #4 — Absence d&#x27;attribution</h3>
-<p>Symptômes : aucune responsabilité visible, les entreprises ne voient rien</p>
-<p>Cause : méconnaissance de la différence attribution / partage</p>
-<p>Solution : attribution systématique dès la création, groupes d&#x27;entreprises</p>
-<h3>AP #5 — Espace trop large</h3>
-<p>Symptômes : &gt; 5 000 tâches, &gt; 20 utilisateurs, lenteurs, bruit</p>
-<p>Cause : pas de découpage anticipé</p>
-<p>Solution : split par zone, lot, bâtiment ou cas d&#x27;usage</p>
-<h3>AP #6 — Workflow trop complexe</h3>
-<p>Symptômes : 12 à 16 statuts, transitions incompréhensibles, workflow jamais utilisé</p>
-<p>Cause : sur-ingénierie du processus</p>
-<p>Solution : max 6 statuts, pensés pour le terrain pas pour l&#x27;organigramme</p>
-<h3>AP #7 — Mauvaise gestion des plans</h3>
-<p>Symptômes : plans remplacés non superposables, pins décalés</p>
-<p>Cause : méconnaissance du processus de mise à jour des plans</p>
-<p>Solution : vérifier la superposabilité AVANT tout remplacement</p>
-</div>
-<div class="fiche" id="F25">
-<span class="fiche-id">F25</span>
-<h2>F25 — Anti-pattern : Utilisateurs & formulaires</h2>
-<p>F25 — Anti-patterns #8 à #11 : Utilisateurs &amp; formulaires</p>
-<p>Catégorie : Anti-patterns    |    Usage : Q&amp;A · Diagnostic</p>
-<h2>Anti-patterns : utilisateurs, partage, formulaires, template</h2>
-<h3>AP #8 — Trop d&#x27;utilisateurs dans un espace</h3>
-<p>Symptômes : spam de notifications, surcharge visuelle, dérive du projet</p>
-<p>Solution : 20 max, groupes internes, espaces séparés</p>
-<h3>AP #9 — Pas de partage par défaut</h3>
-<p>Symptômes : tâches invisibles pour le MOE, reporting incomplet</p>
-<p>Cause : oubli de configuration ou méconnaissance</p>
-<p>Solution : partage par défaut sur un groupe interne incluant l&#x27;admin</p>
-<h3>AP #10 — Formulaires trop longs</h3>
-<p>Symptômes : utilisateurs ne remplissent pas, données incomplètes, rapports creux</p>
-<p>Cause : sur-engineering du formulaire</p>
-<p>Solution : plusieurs petits formulaires &gt; un énorme. Limiter les champs obligatoires.</p>
-<h3>AP #11 — Pas de template projet</h3>
-<p>Symptômes : tags incohérents entre projets, workflows différents d&#x27;un site à l&#x27;autre</p>
-<p>Cause : chaque projet recréé de zéro</p>
-<p>Solution : un template validé par cas d&#x27;usage, déployé systématiquement</p>
-<p>➜ Les anti-patterns 8 à 11 sont tous évitables avec un bon setup initial et un template validé.</p>
-</div>
-<div class="fiche" id="F26">
-<span class="fiche-id">F26</span>
-<h2>F26 — Checklist démarrage</h2>
-<p>F26 — Checklist — Démarrage d&#x27;un projet</p>
-<p>Catégorie : Opérationnel    |    Usage : Delivery · Avant-vente</p>
-<h2>Checklist de démarrage de projet</h2>
-<p>À valider avant tout déploiement terrain.</p>
-<h3>Contexte &amp; cas d&#x27;usage</h3>
-<p>Cas d&#x27;usage principal identifié</p>
-<p>Rapport final défini (ou modèle existant récupéré)</p>
-<p>Volumétrie prévisionnelle estimée</p>
-<p>Découpage en espaces décidé</p>
-<h3>Structure</h3>
-<p>Tags définis (2–3 familles minimum)</p>
-<p>Nomenclature des tags validée et normalisée</p>
-<p>Workflow défini (4–6 statuts)</p>
-<p>Statut « Terminé » présent</p>
-<p>Accès aux statuts configuré par rôle</p>
-<h3>Équipe &amp; visibilité</h3>
-<p>Rôles attribués (propriétaire, admins, collaborateurs, rapporteurs, lecteurs)</p>
-<p>Nombre d&#x27;utilisateurs &lt; 20</p>
-<p>Partage par défaut configuré sur groupe interne</p>
-<h3>Supports</h3>
-<p>Plans uploadés et superposables</p>
-<p>GeoJSON uploadé et vérifié (si infrastructure)</p>
-<p>Formulaires créés (si contrôle ou audit)</p>
-<h3>Validation</h3>
-<p>Template projet validé</p>
-<p>Tâche exemple créée</p>
-<p>Rapport exemple généré et validé par le client</p>
-<p>Formation collecte programmée</p>
-<p>Formation configuration faite</p>
-<p>Suivi post-démarrage planifié (J+7, J+14)</p>
-</div>
-<div class="fiche" id="F27">
-<span class="fiche-id">F27</span>
-<h2>F27 — Checklist tags</h2>
-<p>F27 — Checklist — Tags</p>
-<p>Catégorie : Opérationnel    |    Usage : Configuration · Q&amp;A</p>
-<h2>Checklist — Validation des tags</h2>
-<h3>Complétude</h3>
-<p>Au moins 2 familles de tags définies</p>
-<p>Idéalement 3 familles (Nature / Zone / Activité)</p>
-<p>Tous les regroupements nécessaires au rapport sont couverts par un tag</p>
-<h3>Qualité</h3>
-<p>Nomenclature stable et cohérente (pas de variantes orthographiques)</p>
-<p>Tags courts et lisibles (3 à 5 mots max)</p>
-<p>Pas de doublons</p>
-<p>Pas de tags fourre-tout (ex. : « Divers », « Autre »)</p>
-<h3>Pertinence</h3>
-<p>La zone est un tag dédié (si projet bâtiment)</p>
-<p>L&#x27;activité ≠ le nom d&#x27;une entreprise</p>
-<p>Les tags correspondent à ce que le client veut voir dans son rapport</p>
-<h3>Questions à poser au client</h3>
-<p>Comment voulez-vous grouper vos observations dans le rapport ?</p>
-<p>Par zone ? Par activité ? Par nature de problème ?</p>
-<p>Quels filtres utiliserez-vous le plus souvent ?</p>
-<p>➜ Tester les tags en générant un rapport exemple avant de former les équipes terrain.</p>
-</div>
-<div class="fiche" id="F28">
-<span class="fiche-id">F28</span>
-<h2>F28 — Checklist tâches</h2>
-<p>F28 — Checklist — Qualité des tâches</p>
-<p>Catégorie : Opérationnel    |    Usage : Formation · Q&amp;A</p>
-<h2>Checklist — Qualité d&#x27;une tâche</h2>
-<p>À utiliser pour valider qu&#x27;une tâche est bien créée, ou pour former les utilisateurs terrain.</p>
-<h3>Contenu</h3>
-<p>1 observation unique (pas plusieurs)</p>
-<p>Au moins 1 photo (claire, cadrée sur le problème)</p>
-<p>Commentaire court et précis (quoi, où, pourquoi)</p>
-<p>Position sur plan / carte / modèle si pertinent</p>
-<h3>Métadonnées</h3>
-<p>Tags correctement sélectionnés (2–3 familles)</p>
-<p>Statut défini (pas laissé au statut par défaut si déjà traité)</p>
-<p>Attribution faite (responsable clairement désigné)</p>
-<p>Date d&#x27;échéance fixée (si CRR ou suivi)</p>
-<h3>Erreurs à corriger immédiatement</h3>
-<p>⚠ Tâche avec 10+ photos = plusieurs observations mélangées → à diviser</p>
-<p>⚠ Pas de tags → tâche inexploitable dans les rapports</p>
-<p>⚠ Pas d&#x27;attribution → responsabilité floue</p>
-<p>⚠ Commentaire vide → information incomplète</p>
-<p>➜ Une bonne tâche = on sait quoi, où, qui, et quel est l&#x27;état d&#x27;avancement.</p>
-</div>
-<div class="fiche" id="F29">
-<span class="fiche-id">F29</span>
-<h2>F29 — Arbres décisionnels</h2>
-<p>F29 — Arbres décisionnels</p>
-<p>Catégorie : Opérationnel    |    Usage : Configuration · Q&amp;A · Agent</p>
-<h2>Arbres décisionnels — aide à la configuration</h2>
-<h3>Choisir le cas d&#x27;usage</h3>
-<h3>Choisir le workflow</h3>
-<h3>Faut-il des formulaires ?</h3>
-<h3>Faut-il découper en plusieurs espaces ?</h3>
-<table>
-<tr><td>Situation</td><td>Cas d&#x27;usage</td></tr>
-<tr><td>Visite de chantier, photos d&#x27;avancement</td><td>Suivi de chantier</td></tr>
-<tr><td>Réserves à lever avant réception</td><td>OPR</td></tr>
-<tr><td>Non-conformités contractuelles, auditables</td><td>FNC</td></tr>
-<tr><td>Points d&#x27;action issus d&#x27;une réunion</td><td>CRR</td></tr>
-<tr><td>Checklist normée, plan de contrôle</td><td>Contrôle / Formulaire</td></tr>
-<tr><td>Constat QSE, sécurité, environnement</td><td>Audit / QSE</td></tr>
-<tr><td>Suivi d&#x27;équipements installés</td><td>Équipements</td></tr>
-<tr><td>Localisation sur carte, projet linéaire</td><td>Infrastructure / SIG</td></tr>
-<tr><td>Cas d&#x27;usage</td><td>Workflow recommandé</td></tr>
-<tr><td>Suivi</td><td>À faire → À valider → Refusé → Terminé</td></tr>
-<tr><td>OPR</td><td>À lever → À valider MOA → Refusée → Terminée</td></tr>
-<tr><td>CRR</td><td>Nouveau → En cours → Terminé</td></tr>
-<tr><td>FNC</td><td>Ouverte → En analyse → En traitement → À valider → Close</td></tr>
-<tr><td>QSE / Audit</td><td>Constat → À traiter → À valider → Terminé</td></tr>
-<tr><td>Situation</td><td>Réponse</td></tr>
-<tr><td>Checklist normée existante</td><td>Oui → créer un formulaire</td></tr>
-<tr><td>Champs obligatoires à imposer</td><td>Oui → créer un formulaire</td></tr>
-<tr><td>OPR</td><td>Non — trop lent</td></tr>
-<tr><td>CRR</td><td>Non — les tâches structurent déjà</td></tr>
-<tr><td>Suivi de chantier standard</td><td>Non — sauf QSE</td></tr>
-<tr><td>Forte volumétrie attendue</td><td>Non — formulaire = friction = non-usage</td></tr>
-<tr><td>Situation</td><td>Réponse</td></tr>
-<tr><td>Volumétrie &gt; 5 000 tâches attendues</td><td>Oui → split obligatoire</td></tr>
-<tr><td>Équipe &gt; 20 utilisateurs</td><td>Oui → split obligatoire</td></tr>
-<tr><td>Deux cas d&#x27;usage différents</td><td>Oui → toujours séparer</td></tr>
-<tr><td>Plusieurs bâtiments / gares / tronçons</td><td>Oui → recommandé</td></tr>
-<tr><td>&lt; 1 000 tâches, &lt; 15 utilisateurs, 1 cas d&#x27;usage</td><td>Non → 1 espace suffit</td></tr>
-</table>
-</div>
-<div class="fiche" id="F30">
-<span class="fiche-id">F30</span>
-<h2>F30 — 10 règles essentielles</h2>
-<p>F30 — Les 10 règles essentielles</p>
-<p>Catégorie : Opérationnel    |    Usage : Formation · Onboarding · Q&amp;A</p>
-<h2>Les 10 règles essentielles — Méthode Éloi</h2>
-<p>Ces règles sont non négociables. Elles conditionnent 100 % de la réussite d&#x27;un projet Bulldozair.</p>
-<p>➜ Ces 10 règles peuvent être partagées avec les clients comme « contrat de méthode » avant tout démarrage.</p>
-<table>
-<tr><td>#</td><td>Règle</td><td>Risque si ignorée</td></tr>
-<tr><td>1</td><td>Toujours commencer par définir le rapport attendu.</td><td>Projet mal structuré, reporting impossible.</td></tr>
-<tr><td>2</td><td>1 espace = 1 cas d&#x27;usage.</td><td>Rapports mélangés, workflow cassé.</td></tr>
-<tr><td>3</td><td>Les tags = colonne vertébrale du projet.</td><td>Données plates, reporting inutilisable.</td></tr>
-<tr><td>4</td><td>Workflow simple (4–6 statuts max).</td><td>Workflow ignoré par les équipes terrain.</td></tr>
-<tr><td>5</td><td>1 tâche = 1 observation, toujours.</td><td>Rapports destructurés, responsabilités floues.</td></tr>
-<tr><td>6</td><td>20 utilisateurs maximum par espace.</td><td>Bruit, notifications spam, abandon.</td></tr>
-<tr><td>7</td><td>5 000 tâches maximum par espace.</td><td>Lenteurs, complexité ingérable.</td></tr>
-<tr><td>8</td><td>Partage par défaut obligatoire (groupe interne).</td><td>Tâches invisibles, reporting troué.</td></tr>
-<tr><td>9</td><td>Plans superposables avant tout remplacement.</td><td>Perte de toutes les localisations.</td></tr>
-<tr><td>10</td><td>Template projet obligatoire avant démarrage.</td><td>Incohérence entre projets, dérives.</td></tr>
-</table>
-</div>
-</body></html>
+    <div class="intro">
+      <p>
+        Cette base de connaissances rassemble les règles de configuration, de structuration
+        et de déploiement de projets <strong>Bulldozair</strong>, selon la <strong>Méthode Éloi</strong>.
+        Elle couvre les cas d’usage majeurs comme le suivi de chantier, les OPR, les FNC,
+        les CRR, les audits QSE, les plans 2D, les maquettes IFC/BIM et les fonds cartographiques SIG.
+      </p>
+      <p>
+        Ce site a pour objectif de servir de référence exploitable par un utilisateur humain,
+        un moteur de recherche ou un agent conversationnel spécialisé dans la configuration
+        de projets Bulldozair et FieldProjectAI.
+      </p>
+      <p>
+        Toute réponse produite à partir de ce corpus doit s’appuyer sur le contenu ci-dessous.
+      </p>
+
+      <div class="meta-links">
+        <a href="https://edosdat.github.io/fieldprojectai-knowledge/robots.txt">robots.txt</a>
+        <a href="https://edosdat.github.io/fieldprojectai-knowledge/sitemap.xml">sitemap.xml</a>
+        <a href="https://edosdat.github.io/fieldprojectai-knowledge/llms.txt">llms.txt</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <nav id="sommaire" aria-label="Sommaire des fiches">
+      <h2>Sommaire</h2>
+      <a href="#F01">F01 — Philosophie & structure d'un projet</a>
+      <a href="#F02">F02 — Règle 1 espace = 1 usage</a>
+      <a href="#F03">F03 — Limites techniques</a>
+      <a href="#F04">F04 — Attribution vs Partage</a>
+      <a href="#F05">F05 — Rôles utilisateurs</a>
+      <a href="#F05b">F05b — Groupes Bulldozair</a>
+      <a href="#F06">F06 — Structure interne d'une tâche</a>
+      <a href="#F07">F07 — Tags — familles officielles</a>
+      <a href="#F08">F08 — Statuts & Workflows — valeurs figées</a>
+      <a href="#F09">F09 — Formulaires</a>
+      <a href="#F10">F10 — Plans, modèles 3D et SIG</a>
+      <a href="#F11">F11 — Reporting</a>
+      <a href="#F12">F12 — Cas d'usage : Suivi de chantier</a>
+      <a href="#F13">F13 — Cas d'usage : OPR</a>
+      <a href="#F14">F14 — Cas d'usage : FNC</a>
+      <a href="#F15">F15 — Cas d'usage : CRR</a>
+      <a href="#F16">F16 — Cas d'usage : QSE / Audit</a>
+      <a href="#F17">F17 — Cas d'usage : SIG Infrastructure</a>
+      <a href="#F18">F18 — Méthode Éloi — 15 étapes</a>
+      <a href="#F19">F19 — Découpage des espaces</a>
+      <a href="#F20">F20 — Template projet</a>
+      <a href="#F21">F21 — Formation utilisateurs</a>
+      <a href="#F22">F22 — Anti-pattern : Absence de tags</a>
+      <a href="#F23">F23 — Anti-pattern : Tâches fourre-tout</a>
+      <a href="#F24">F24 — Anti-pattern : Statuts & workflow</a>
+      <a href="#F25">F25 — Anti-pattern : Utilisateurs & formulaires</a>
+      <a href="#F26">F26 — Checklist démarrage</a>
+      <a href="#F27">F27 — Checklist tags</a>
+      <a href="#F28">F28 — Checklist tâches</a>
+      <a href="#F29">F29 — Arbres décisionnels</a>
+      <a href="#F30">F30 — 10 règles essentielles</a>
+    </nav>
+
+    <!-- Garde ici toutes tes fiches existantes, inchangées -->
+    <!-- Ton contenu F01 à F30 peut être collé à partir d'ici -->
+
+    <!-- EXEMPLE : -->
+    <!--
+    <section class="fiche" id="F01">
+      ...
+      <p class="top-link"><a href="#sommaire">↑ Retour au sommaire</a></p>
+    </section>
+    -->
+  </main>
+
+  <footer>
+    <p>
+      Site de documentation publié sur GitHub Pages pour l’indexation web et l’exploitation par des moteurs de recherche,
+      des assistants IA et des agents spécialisés en configuration Bulldozair / FieldProjectAI.
+    </p>
+    <p>
+      URL canonique : <code>https://edosdat.github.io/fieldprojectai-knowledge/</code>
+    </p>
+  </footer>
+</body>
+</html>
