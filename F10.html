@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Bulldozair Méthode Éloi — F10 : Plans, modèles 3D et SIG — Base de connaissances FieldProjectAI">
+<meta name="robots" content="index, follow">
+<title>F10 — Plans, modèles 3D et SIG | BulldozAI Base de connaissances</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <div class="header-top">
+    <a href="../index.html">← Accueil</a>
+    <span style="color:rgba(255,255,255,0.3)">·</span>
+    <a href="../index.html">BulldozAI — Base de connaissances</a>
+  </div>
+  <div class="header-main">
+    <div class="fiche-badge-large">F10</div>
+    <div>
+      <h1>Plans, modèles 3D et SIG</h1>
+      <div class="header-meta">
+        <span class="meta-tag">📂 Composants</span>
+        <span class="meta-tag">🎯 Configuration · Setup</span>
+        <span class="meta-tag">Agent FieldProjectAI</span>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container">
+
+<div class="fiches-nav">
+  <h2>Navigation — Toutes les fiches</h2>
+  <div class="nav-grid">
+    <a href="F01.html" class="nav-item"><span class="badge">F01</span>Philosophie & structure d'un projet</a>
+<a href="F02.html" class="nav-item"><span class="badge">F02</span>Règle 1 espace = 1 usage</a>
+<a href="F03.html" class="nav-item"><span class="badge">F03</span>Limites techniques</a>
+<a href="F04.html" class="nav-item"><span class="badge">F04</span>Attribution vs Partage</a>
+<a href="F05.html" class="nav-item"><span class="badge">F05</span>Rôles utilisateurs</a>
+<a href="F05b.html" class="nav-item"><span class="badge">F05b</span>Groupes Bulldozair</a>
+<a href="F06.html" class="nav-item"><span class="badge">F06</span>Structure interne d'une tâche</a>
+<a href="F07.html" class="nav-item"><span class="badge">F07</span>Tags — familles officielles</a>
+<a href="F08.html" class="nav-item"><span class="badge">F08</span>Statuts & Workflows — valeurs figées</a>
+<a href="F09.html" class="nav-item"><span class="badge">F09</span>Formulaires</a>
+<a href="F10.html" class="nav-item current"><span class="badge">F10</span>Plans, modèles 3D et SIG</a>
+<a href="F11.html" class="nav-item"><span class="badge">F11</span>Reporting</a>
+<a href="F12.html" class="nav-item"><span class="badge">F12</span>Cas d'usage : Suivi de chantier</a>
+<a href="F13.html" class="nav-item"><span class="badge">F13</span>Cas d'usage : OPR</a>
+<a href="F14.html" class="nav-item"><span class="badge">F14</span>Cas d'usage : FNC</a>
+<a href="F15.html" class="nav-item"><span class="badge">F15</span>Cas d'usage : CRR</a>
+<a href="F16.html" class="nav-item"><span class="badge">F16</span>Cas d'usage : QSE / Audit</a>
+<a href="F17.html" class="nav-item"><span class="badge">F17</span>Cas d'usage : SIG Infrastructure</a>
+<a href="F18.html" class="nav-item"><span class="badge">F18</span>Méthode Éloi — 15 étapes</a>
+<a href="F19.html" class="nav-item"><span class="badge">F19</span>Découpage des espaces</a>
+<a href="F20.html" class="nav-item"><span class="badge">F20</span>Template projet</a>
+<a href="F21.html" class="nav-item"><span class="badge">F21</span>Formation utilisateurs</a>
+<a href="F22.html" class="nav-item"><span class="badge">F22</span>Anti-pattern : Absence de tags</a>
+<a href="F23.html" class="nav-item"><span class="badge">F23</span>Anti-pattern : Tâches fourre-tout</a>
+<a href="F24.html" class="nav-item"><span class="badge">F24</span>Anti-pattern : Statuts & workflow</a>
+<a href="F25.html" class="nav-item"><span class="badge">F25</span>Anti-pattern : Utilisateurs & formulaires</a>
+<a href="F26.html" class="nav-item"><span class="badge">F26</span>Checklist démarrage</a>
+<a href="F27.html" class="nav-item"><span class="badge">F27</span>Checklist tags</a>
+<a href="F28.html" class="nav-item"><span class="badge">F28</span>Checklist tâches</a>
+<a href="F29.html" class="nav-item"><span class="badge">F29</span>Arbres décisionnels</a>
+<a href="F30.html" class="nav-item"><span class="badge">F30</span>10 règles essentielles</a>
+  </div>
+</div>
+
+
+<div class="section">
+  <div class="section-title">Les 3 types de supports dans Bulldozair</div>
+  <div class="section-body">
+    <p>Bulldozair supporte 3 types de supports : les plans 2D (PDF), les fonds de carte SIG (GeoJSON), et les modèles 3D (IFC/BIM). Ils sont superposables dans le même espace.</p>
+    <div class="table-wrap"><table>
+      <tr><th>Type</th><th>Noms courants</th><th>Format</th><th>Disponible ?</th></tr>
+      <tr><td>Plan 2D</td><td>Plan PDF, fond de plan, plan d'étage, plan tuilé</td><td>PDF</td><td>✅ Oui — natif</td></tr>
+      <tr><td>Fond de carte SIG</td><td>GeoJSON, carte géo, fond cartographique, SIG</td><td>GeoJSON</td><td>✅ Oui — natif</td></tr>
+      <tr><td>Modèle 3D</td><td>IFC, BIM, maquette 3D, modèle numérique</td><td>IFC</td><td>✅ Oui — natif</td></tr>
+    </table></div>
+    <h2>Modèles 3D / BIM</h2>
+    <div class="highlight green">✅ OUI — Bulldozair supporte nativement les fichiers IFC. On peut charger un modèle 3D, naviguer dedans sur tablette ou desktop, et épingler des tâches directement sur le modèle.</div>
+    <div class="table-wrap"><table>
+      <tr><th>Paramètre</th><th>Valeur</th></tr>
+      <tr><td>Format accepté</td><td>IFC (Industry Foundation Classes)</td></tr>
+      <tr><td>Navigation</td><td>Oui — navigation 3D sur tablette et desktop</td></tr>
+      <tr><td>Épinglage de tâches</td><td>Oui — directement sur le modèle</td></tr>
+      <tr><td>Superposition avec plans 2D</td><td>Oui — dans le même espace</td></tr>
+      <tr><td>Taille recommandée</td><td>&lt; 500 Mo pour des performances optimales</td></tr>
+      <tr><td>Conseil</td><td>Exporter depuis Revit / ArchiCAD en IFC2x3 ou IFC4</td></tr>
+    </table></div>
+    <div class="highlight orange">⚠ DWG et DXF ne sont pas supportés directement — exporter en PDF avant import.</div>
+    <h2>Tableau de réponses rapides</h2>
+    <div class="table-wrap"><table>
+      <tr><th>Question client</th><th>Réponse Bulldozair</th></tr>
+      <tr><td>Est-ce que je peux charger des modèles 3D ?</td><td>Oui — format IFC. Navigation 3D sur tablette et desktop.</td></tr>
+      <tr><td>Est-ce que ça marche avec Revit ?</td><td>Oui — exporter en IFC depuis Revit, puis importer dans Bulldozair.</td></tr>
+      <tr><td>Puis-je avoir plan 2D ET modèle 3D dans le même espace ?</td><td>Oui — superposables nativement.</td></tr>
+      <tr><td>Est-ce que je peux utiliser Google Maps comme fond ?</td><td>Non — utiliser GeoJSON. Pas d'intégration Google Maps native.</td></tr>
+    </table></div>
+  </div>
+</div>
+
+
+<div class="fiche-footer-nav"><a href="F09.html" class="nav-btn prev">
+  <span class="arrow">←</span>
+  <div><div class="nav-label">Précédente</div><div class="nav-title">F09 — Formulaires</div></div>
+</a><a href="F11.html" class="nav-btn next">
+  <div><div class="nav-label">Suivante</div><div class="nav-title">F11 — Reporting</div></div>
+  <span class="arrow">→</span>
+</a></div>
+
+</div>
+<footer>
+  <p>BulldozAI — Base de connaissances Méthode Éloi | <a href="../index.html" style="color:var(--blue)">Retour à l'accueil</a></p>
+  <p style="margin-top:4px">URL : https://edosdat.github.io/fieldprojectai-knowledge/fiches/F10.html</p>
+</footer>
+</body>
+</html>
