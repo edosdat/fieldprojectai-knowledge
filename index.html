@@ -2,199 +2,128 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="msvalidate.01" content="EA523E7E5DD378F5C679DEA0C9F5734F" />
 <meta name="description" content="BulldozAI — Base de connaissances Méthode Éloi — Fiches F01 à F30 — Agent FieldProjectAI — Configuration de projets Bulldozair">
-<meta name="robots" content="index, follow">
-<title>BulldozAI — Base de connaissances Méthode Éloi — F01 à F30</title>
+<meta name="robots" content="index,follow">
+<title>BulldozAI — Base de connaissances Méthode Éloi</title>
 <link rel="stylesheet" href="style.css">
 <style>
-.hero {
-  background: linear-gradient(135deg, #1F3864 0%, #2E75B6 100%);
-  color: white;
-  padding: 48px 40px;
-}
-.hero h1 { font-size: 32px; font-weight: 700; margin-bottom: 12px; }
-.hero p { font-size: 16px; opacity: 0.85; max-width: 600px; line-height: 1.6; }
-.hero-meta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
-.hero-badge {
-  background: rgba(255,255,255,0.15);
-  border: 1px solid rgba(255,255,255,0.25);
-  color: white;
-  font-size: 13px;
-  padding: 6px 14px;
-  border-radius: 20px;
-}
-.category-section { margin-bottom: 36px; }
-.category-title {
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--muted);
-  margin-bottom: 12px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--border);
-}
-.fiches-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 10px;
-}
-.fiche-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 14px 16px;
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  text-decoration: none;
-  color: var(--text);
-  transition: all 0.15s;
-}
-.fiche-card:hover {
-  border-color: var(--blue);
-  background: var(--highlight-blue);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(46,117,182,0.12);
-}
-.fiche-card .badge {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  font-weight: 600;
-  background: var(--navy);
-  color: white;
-  padding: 3px 8px;
-  border-radius: 5px;
-  white-space: nowrap;
-  margin-top: 1px;
-}
-.fiche-card .card-info .title {
-  font-size: 13.5px;
-  font-weight: 600;
-  color: var(--navy);
-  line-height: 1.3;
-}
-.fiche-card .card-info .usage {
-  font-size: 11.5px;
-  color: var(--muted);
-  margin-top: 3px;
-}
-.stats-bar {
-  display: flex;
-  gap: 24px;
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 20px 28px;
-  margin-bottom: 32px;
-  flex-wrap: wrap;
-}
-.stat { text-align: center; }
-.stat .number { font-size: 28px; font-weight: 700; color: var(--navy); font-family: 'IBM Plex Mono', monospace; }
-.stat .label { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.hero{background:linear-gradient(135deg,#1F3864 0%,#2E75B6 100%);color:#fff;padding:52px 0}
+.hero-inner{max-width:960px;margin:0 auto;padding:0 24px}
+.hero h1{font-size:30px;font-weight:700;margin-bottom:12px;line-height:1.2}
+.hero p{font-size:15px;opacity:.85;max-width:580px;line-height:1.65}
+.hero-chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.hero-chip{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:#fff;font-size:13px;padding:5px 14px;border-radius:20px}
+.page-body{max-width:960px;margin:0 auto;padding:32px 24px 60px}
+.stats{display:flex;gap:0;background:#fff;border:1px solid #CBD5E1;border-radius:12px;overflow:hidden;margin-bottom:32px}
+.stat{flex:1;text-align:center;padding:20px 12px;border-right:1px solid #CBD5E1}
+.stat:last-child{border-right:none}
+.stat .n{font-size:30px;font-weight:700;color:#1F3864;font-family:'JetBrains Mono',monospace}
+.stat .l{font-size:12px;color:#64748b;margin-top:3px}
+.cat-block{margin-bottom:32px}
+.cat-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#64748b;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid #E2E8F0;display:flex;align-items:center;gap:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:10px}
+.fc{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;background:#fff;border:1px solid #CBD5E1;border-radius:10px;text-decoration:none;color:#1e293b;transition:all .15s}
+.fc:hover{border-color:#2E75B6;background:#EFF6FF;transform:translateY(-2px);box-shadow:0 4px 16px rgba(46,117,182,0.1)}
+.fc .bid{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;background:#1F3864;color:#fff;padding:3px 8px;border-radius:5px;white-space:nowrap;margin-top:2px;flex-shrink:0}
+.fc .ci .t{font-size:13.5px;font-weight:600;color:#1F3864;line-height:1.3}
+.fc .ci .u{font-size:11.5px;color:#64748b;margin-top:3px}
+footer{text-align:center;padding:28px;color:#64748b;font-size:12px;border-top:1px solid #CBD5E1}
 </style>
 </head>
 <body>
-<header class="hero">
-  <h1>BulldozAI — Base de connaissances Méthode Éloi</h1>
-  <p>Document de référence de l'agent FieldProjectAI. 30 fiches structurées couvrant la configuration complète de projets Bulldozair selon la Méthode Éloi.</p>
-  <div class="hero-meta">
-    <span class="hero-badge">📋 31 fiches</span>
-    <span class="hero-badge">🤖 Agent FieldProjectAI</span>
-    <span class="hero-badge">🏗 Bulldozair / Mezzoteam</span>
-    <span class="hero-badge">✅ Méthode Éloi</span>
-  </div>
-</header>
-
-<div class="container">
-
-<div class="stats-bar">
-  <div class="stat"><div class="number">31</div><div class="label">Fiches</div></div>
-  <div class="stat"><div class="number">5</div><div class="label">Cas d'usage</div></div>
-  <div class="stat"><div class="number">4</div><div class="label">Anti-patterns</div></div>
-  <div class="stat"><div class="number">15</div><div class="label">Étapes méthode</div></div>
-  <div class="stat"><div class="number">10</div><div class="label">Règles essentielles</div></div>
-</div>
-
-<!-- FONDAMENTAUX -->
-<div class="category-section">
-  <div class="category-title">📐 Fondamentaux</div>
-  <div class="fiches-grid">
-    <a href="fiches/F01.html" class="fiche-card"><span class="badge">F01</span><div class="card-info"><div class="title">Philosophie & structure d'un projet</div><div class="usage">Q&A · Onboarding</div></div></a>
-    <a href="fiches/F02.html" class="fiche-card"><span class="badge">F02</span><div class="card-info"><div class="title">Règle 1 espace = 1 usage</div><div class="usage">Configuration · Avant-vente</div></div></a>
-    <a href="fiches/F03.html" class="fiche-card"><span class="badge">F03</span><div class="card-info"><div class="title">Limites techniques</div><div class="usage">Configuration · Delivery</div></div></a>
-    <a href="fiches/F04.html" class="fiche-card"><span class="badge">F04</span><div class="card-info"><div class="title">Attribution vs Partage</div><div class="usage">Configuration · Formation</div></div></a>
-    <a href="fiches/F05.html" class="fiche-card"><span class="badge">F05</span><div class="card-info"><div class="title">Rôles utilisateurs</div><div class="usage">Configuration · Onboarding · Setup</div></div></a>
-    <a href="fiches/F05b.html" class="fiche-card"><span class="badge">F05b</span><div class="card-info"><div class="title">Groupes Bulldozair</div><div class="usage">Configuration · Setup · Partage</div></div></a>
-    <a href="fiches/F06.html" class="fiche-card"><span class="badge">F06</span><div class="card-info"><div class="title">Structure interne d'une tâche</div><div class="usage">Formation · Q&A</div></div></a>
+<div class="hero">
+  <div class="hero-inner">
+    <h1>BulldozAI — Base de connaissances Méthode Éloi</h1>
+    <p>Document de référence de l'agent FieldProjectAI. 31 fiches structurées couvrant la configuration complète de projets Bulldozair.</p>
+    <div class="hero-chips">
+      <span class="hero-chip">📋 31 fiches</span>
+      <span class="hero-chip">🤖 Agent FieldProjectAI</span>
+      <span class="hero-chip">🏗 Bulldozair / Mezzoteam</span>
+      <span class="hero-chip">✅ Méthode Éloi</span>
+    </div>
   </div>
 </div>
 
-<!-- COMPOSANTS -->
-<div class="category-section">
-  <div class="category-title">🔧 Composants</div>
-  <div class="fiches-grid">
-    <a href="fiches/F07.html" class="fiche-card"><span class="badge">F07</span><div class="card-info"><div class="title">Tags — familles officielles</div><div class="usage">Configuration · Reporting</div></div></a>
-    <a href="fiches/F08.html" class="fiche-card"><span class="badge">F08</span><div class="card-info"><div class="title">Statuts & Workflows — valeurs figées</div><div class="usage">Configuration · Formation</div></div></a>
-    <a href="fiches/F09.html" class="fiche-card"><span class="badge">F09</span><div class="card-info"><div class="title">Formulaires</div><div class="usage">Configuration · Formation</div></div></a>
-    <a href="fiches/F10.html" class="fiche-card"><span class="badge">F10</span><div class="card-info"><div class="title">Plans, modèles 3D et SIG</div><div class="usage">Configuration · Setup</div></div></a>
-    <a href="fiches/F11.html" class="fiche-card"><span class="badge">F11</span><div class="card-info"><div class="title">Reporting</div><div class="usage">Configuration · Avant-vente</div></div></a>
+<div class="page-body">
+
+<div class="stats">
+  <div class="stat"><div class="n">31</div><div class="l">Fiches</div></div>
+  <div class="stat"><div class="n">5</div><div class="l">Cas d'usage</div></div>
+  <div class="stat"><div class="n">4</div><div class="l">Anti-patterns</div></div>
+  <div class="stat"><div class="n">15</div><div class="l">Étapes méthode</div></div>
+  <div class="stat"><div class="n">10</div><div class="l">Règles essentielles</div></div>
+</div>
+
+<div class="cat-block">
+  <div class="cat-title">📐 Fondamentaux</div>
+  <div class="grid">
+    <a href="F01.html" class="fc"><span class="bid">F01</span><div class="ci"><div class="t">Philosophie & structure d'un projet</div><div class="u">Q&A · Onboarding</div></div></a>
+    <a href="F02.html" class="fc"><span class="bid">F02</span><div class="ci"><div class="t">Règle 1 espace = 1 usage</div><div class="u">Configuration · Avant-vente</div></div></a>
+    <a href="F03.html" class="fc"><span class="bid">F03</span><div class="ci"><div class="t">Limites techniques</div><div class="u">Configuration · Delivery</div></div></a>
+    <a href="F04.html" class="fc"><span class="bid">F04</span><div class="ci"><div class="t">Attribution vs Partage</div><div class="u">Configuration · Formation</div></div></a>
+    <a href="F05.html" class="fc"><span class="bid">F05</span><div class="ci"><div class="t">Rôles utilisateurs</div><div class="u">Configuration · Onboarding · Setup</div></div></a>
+    <a href="F05b.html" class="fc"><span class="bid">F05b</span><div class="ci"><div class="t">Groupes Bulldozair</div><div class="u">Configuration · Setup · Partage</div></div></a>
+    <a href="F06.html" class="fc"><span class="bid">F06</span><div class="ci"><div class="t">Structure interne d'une tâche</div><div class="u">Formation · Q&A</div></div></a>
   </div>
 </div>
 
-<!-- CAS D'USAGE -->
-<div class="category-section">
-  <div class="category-title">🏗 Cas d'usage</div>
-  <div class="fiches-grid">
-    <a href="fiches/F12.html" class="fiche-card"><span class="badge">F12</span><div class="card-info"><div class="title">Suivi de chantier</div><div class="usage">Configuration · Delivery</div></div></a>
-    <a href="fiches/F13.html" class="fiche-card"><span class="badge">F13</span><div class="card-info"><div class="title">OPR — Opérations Préalables à la Réception</div><div class="usage">Configuration · Delivery</div></div></a>
-    <a href="fiches/F14.html" class="fiche-card"><span class="badge">F14</span><div class="card-info"><div class="title">FNC — Fiche de Non-Conformité</div><div class="usage">Configuration · Delivery</div></div></a>
-    <a href="fiches/F15.html" class="fiche-card"><span class="badge">F15</span><div class="card-info"><div class="title">CRR — Compte Rendu de Réunion</div><div class="usage">Configuration · Delivery</div></div></a>
-    <a href="fiches/F16.html" class="fiche-card"><span class="badge">F16</span><div class="card-info"><div class="title">QSE / Audit</div><div class="usage">Configuration · Delivery</div></div></a>
-    <a href="fiches/F17.html" class="fiche-card"><span class="badge">F17</span><div class="card-info"><div class="title">SIG Infrastructure linéaire</div><div class="usage">Configuration · Technique</div></div></a>
+<div class="cat-block">
+  <div class="cat-title">🔧 Composants</div>
+  <div class="grid">
+    <a href="F07.html" class="fc"><span class="bid">F07</span><div class="ci"><div class="t">Tags — familles officielles</div><div class="u">Configuration · Reporting</div></div></a>
+    <a href="F08.html" class="fc"><span class="bid">F08</span><div class="ci"><div class="t">Statuts & Workflows — valeurs figées</div><div class="u">Configuration · Formation</div></div></a>
+    <a href="F09.html" class="fc"><span class="bid">F09</span><div class="ci"><div class="t">Formulaires</div><div class="u">Configuration · Formation</div></div></a>
+    <a href="F10.html" class="fc"><span class="bid">F10</span><div class="ci"><div class="t">Plans, modèles 3D et SIG</div><div class="u">Configuration · Setup</div></div></a>
+    <a href="F11.html" class="fc"><span class="bid">F11</span><div class="ci"><div class="t">Reporting</div><div class="u">Configuration · Avant-vente</div></div></a>
   </div>
 </div>
 
-<!-- MÉTHODE -->
-<div class="category-section">
-  <div class="category-title">📘 Méthode</div>
-  <div class="fiches-grid">
-    <a href="fiches/F18.html" class="fiche-card"><span class="badge">F18</span><div class="card-info"><div class="title">Méthode Éloi — 15 étapes</div><div class="usage">Formation · Onboarding · Delivery</div></div></a>
-    <a href="fiches/F19.html" class="fiche-card"><span class="badge">F19</span><div class="card-info"><div class="title">Découpage des espaces</div><div class="usage">Configuration · Avant-vente</div></div></a>
-    <a href="fiches/F20.html" class="fiche-card"><span class="badge">F20</span><div class="card-info"><div class="title">Template projet</div><div class="usage">Configuration · Delivery</div></div></a>
-    <a href="fiches/F21.html" class="fiche-card"><span class="badge">F21</span><div class="card-info"><div class="title">Formation utilisateurs</div><div class="usage">Onboarding · Delivery</div></div></a>
+<div class="cat-block">
+  <div class="cat-title">🏗 Cas d'usage</div>
+  <div class="grid">
+    <a href="F12.html" class="fc"><span class="bid">F12</span><div class="ci"><div class="t">Suivi de chantier</div><div class="u">Configuration · Delivery</div></div></a>
+    <a href="F13.html" class="fc"><span class="bid">F13</span><div class="ci"><div class="t">OPR — Opérations Préalables à la Réception</div><div class="u">Configuration · Delivery</div></div></a>
+    <a href="F14.html" class="fc"><span class="bid">F14</span><div class="ci"><div class="t">FNC — Fiche de Non-Conformité</div><div class="u">Configuration · Delivery</div></div></a>
+    <a href="F15.html" class="fc"><span class="bid">F15</span><div class="ci"><div class="t">CRR — Compte Rendu de Réunion</div><div class="u">Configuration · Delivery</div></div></a>
+    <a href="F16.html" class="fc"><span class="bid">F16</span><div class="ci"><div class="t">QSE / Audit</div><div class="u">Configuration · Delivery</div></div></a>
+    <a href="F17.html" class="fc"><span class="bid">F17</span><div class="ci"><div class="t">SIG Infrastructure linéaire</div><div class="u">Configuration · Technique</div></div></a>
   </div>
 </div>
 
-<!-- ANTI-PATTERNS -->
-<div class="category-section">
-  <div class="category-title">⚠ Anti-patterns</div>
-  <div class="fiches-grid">
-    <a href="fiches/F22.html" class="fiche-card"><span class="badge">F22</span><div class="card-info"><div class="title">Anti-pattern : Absence de tags</div><div class="usage">Q&A · Diagnostic</div></div></a>
-    <a href="fiches/F23.html" class="fiche-card"><span class="badge">F23</span><div class="card-info"><div class="title">Anti-pattern : Tâches fourre-tout</div><div class="usage">Q&A · Diagnostic</div></div></a>
-    <a href="fiches/F24.html" class="fiche-card"><span class="badge">F24</span><div class="card-info"><div class="title">Anti-pattern : Statuts & workflow</div><div class="usage">Q&A · Diagnostic</div></div></a>
-    <a href="fiches/F25.html" class="fiche-card"><span class="badge">F25</span><div class="card-info"><div class="title">Anti-pattern : Utilisateurs & formulaires</div><div class="usage">Q&A · Diagnostic</div></div></a>
+<div class="cat-block">
+  <div class="cat-title">📘 Méthode</div>
+  <div class="grid">
+    <a href="F18.html" class="fc"><span class="bid">F18</span><div class="ci"><div class="t">Méthode Éloi — 15 étapes</div><div class="u">Formation · Onboarding · Delivery</div></div></a>
+    <a href="F19.html" class="fc"><span class="bid">F19</span><div class="ci"><div class="t">Découpage des espaces</div><div class="u">Configuration · Avant-vente</div></div></a>
+    <a href="F20.html" class="fc"><span class="bid">F20</span><div class="ci"><div class="t">Template projet</div><div class="u">Configuration · Delivery</div></div></a>
+    <a href="F21.html" class="fc"><span class="bid">F21</span><div class="ci"><div class="t">Formation utilisateurs</div><div class="u">Onboarding · Delivery</div></div></a>
   </div>
 </div>
 
-<!-- OPÉRATIONNEL -->
-<div class="category-section">
-  <div class="category-title">✅ Opérationnel</div>
-  <div class="fiches-grid">
-    <a href="fiches/F26.html" class="fiche-card"><span class="badge">F26</span><div class="card-info"><div class="title">Checklist démarrage de projet</div><div class="usage">Delivery · Avant-vente</div></div></a>
-    <a href="fiches/F27.html" class="fiche-card"><span class="badge">F27</span><div class="card-info"><div class="title">Checklist tags</div><div class="usage">Configuration · Q&A</div></div></a>
-    <a href="fiches/F28.html" class="fiche-card"><span class="badge">F28</span><div class="card-info"><div class="title">Checklist tâches</div><div class="usage">Formation · Q&A</div></div></a>
-    <a href="fiches/F29.html" class="fiche-card"><span class="badge">F29</span><div class="card-info"><div class="title">Arbres décisionnels</div><div class="usage">Configuration · Q&A · Agent</div></div></a>
-    <a href="fiches/F30.html" class="fiche-card"><span class="badge">F30</span><div class="card-info"><div class="title">10 règles essentielles</div><div class="usage">Formation · Onboarding · Q&A</div></div></a>
+<div class="cat-block">
+  <div class="cat-title">⚠ Anti-patterns</div>
+  <div class="grid">
+    <a href="F22.html" class="fc"><span class="bid">F22</span><div class="ci"><div class="t">Anti-pattern : Absence de tags</div><div class="u">Q&A · Diagnostic</div></div></a>
+    <a href="F23.html" class="fc"><span class="bid">F23</span><div class="ci"><div class="t">Anti-pattern : Tâches fourre-tout</div><div class="u">Q&A · Diagnostic</div></div></a>
+    <a href="F24.html" class="fc"><span class="bid">F24</span><div class="ci"><div class="t">Anti-pattern : Statuts & workflow</div><div class="u">Q&A · Diagnostic</div></div></a>
+    <a href="F25.html" class="fc"><span class="bid">F25</span><div class="ci"><div class="t">Anti-pattern : Utilisateurs & formulaires</div><div class="u">Q&A · Diagnostic</div></div></a>
+  </div>
+</div>
+
+<div class="cat-block">
+  <div class="cat-title">✅ Opérationnel</div>
+  <div class="grid">
+    <a href="F26.html" class="fc"><span class="bid">F26</span><div class="ci"><div class="t">Checklist démarrage de projet</div><div class="u">Delivery · Avant-vente</div></div></a>
+    <a href="F27.html" class="fc"><span class="bid">F27</span><div class="ci"><div class="t">Checklist tags</div><div class="u">Configuration · Q&A</div></div></a>
+    <a href="F28.html" class="fc"><span class="bid">F28</span><div class="ci"><div class="t">Checklist tâches</div><div class="u">Formation · Q&A</div></div></a>
+    <a href="F29.html" class="fc"><span class="bid">F29</span><div class="ci"><div class="t">Arbres décisionnels</div><div class="u">Configuration · Q&A · Agent</div></div></a>
+    <a href="F30.html" class="fc"><span class="bid">F30</span><div class="ci"><div class="t">10 règles essentielles</div><div class="u">Formation · Onboarding · Q&A</div></div></a>
   </div>
 </div>
 
 </div>
-<footer>
-  <p>BulldozAI — Base de connaissances Méthode Éloi | Agent FieldProjectAI</p>
-  <p style="margin-top:4px">URL : https://edosdat.github.io/fieldprojectai-knowledge/</p>
-</footer>
+<footer>BulldozAI — Base de connaissances Méthode Éloi | Agent FieldProjectAI<br>https://edosdat.github.io/fieldprojectai-knowledge/</footer>
 </body>
 </html>
