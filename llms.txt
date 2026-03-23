@@ -1,0 +1,790 @@
+# BulldozAI — Base de connaissances Méthode Éloi
+
+> Base de connaissances complète pour l'agent FieldProjectAI. Contient 31 fiches structurées couvrant la configuration de projets Bulldozair selon la Méthode Éloi.
+
+Site: https://edosdat.github.io/fieldprojectai-knowledge/
+Agent: FieldProjectAI
+Plateforme: Bulldozair / Mezzoteam Field
+Méthode: Méthode Éloi (méthode empirique de configuration de projets Bulldozair)
+
+---
+
+## F01 — Philosophie & structure d'un projet
+Catégorie: Fondamentaux | Usage: Q&A · Onboarding
+
+Bulldozair n'est pas un outil libre ou un bloc-notes numérique. C'est un outil de procédure, de suivi, de preuve et de reporting. Tout dans Bulldozair doit être pensé pour produire une donnée exploitable.
+
+Règle fondamentale: Tout projet Bulldozair doit être conçu à partir du reporting final.
+
+Les 3 piliers:
+- La tâche: Unité minimale de donnée. 1 tâche = 1 élément unique (observation, réserve, FNC, point...).
+- Le workflow: Ce qui fait évoluer la tâche dans le temps. Manuel, collaboratif, structuré.
+- Le reporting: La finalité du projet. Ce que l'on veut sortir conditionne toute la structure.
+
+Un projet sans structure = données mortes. Un projet bien structuré = rapport produit en quelques clics.
+ATTENTION: Bulldozair mal configuré donne l'illusion du travail sans valeur ajoutée réelle.
+
+---
+
+## F02 — Règle 1 espace = 1 usage
+Catégorie: Fondamentaux | Usage: Configuration · Avant-vente
+
+C'est la règle la plus importante de la méthode. Chaque espace Bulldozair doit être monofonction. 1 espace = 1 cas d'usage = 1 logique métier.
+
+Cas d'usage à séparer systématiquement: Suivi de chantier, OPR, FNC, CRR, Contrôle/Inspection, Audit/QSE, Infrastructure SIG.
+
+ERREUR FRÉQUENTE: Mélanger deux cas d'usage dans un espace est l'erreur de configuration la plus fréquente.
+
+Conséquences du mélange:
+- Workflows: Des statuts OPR et suivi de chantier dans le même espace créent une confusion totale.
+- Utilisateurs: Les entreprises voient des tâches qui ne les concernent pas.
+- Reporting: Impossible de sortir un OPR propre si les tâches sont mélangées avec du suivi.
+- Tags: Les familles de tags ne peuvent pas correspondre à deux logiques différentes.
+
+---
+
+## F03 — Limites techniques
+Catégorie: Fondamentaux | Usage: Configuration · Delivery
+
+Limites réelles observées sur le terrain (non officiellement documentées mais constatées sur des centaines de projets):
+- Tâches par espace: 5 000 max. Impact si dépassé: Ralentissements, rapports lourds, complexité ingérable.
+- Utilisateurs par espace: 20 max. Impact si dépassé: Spam de notifications, onboarding chaotique, bruit opérationnel.
+
+Que faire si on approche des limites ?
+Tâches > 5 000: Découper par bâtiment, gare, tronçon ou phase. Créer un espace par lot ou par zone. Archiver les tâches clôturées.
+Utilisateurs > 20: Créer des espaces séparés par équipe ou lot. Utiliser des groupes pour limiter la visibilité. Séparer MOE/MOA/Entreprises dans des espaces distincts.
+
+En cas de doute sur la volumétrie prévisionnelle: prévoir le split dès le départ.
+
+---
+
+## F04 — Attribution vs Partage
+Catégorie: Fondamentaux | Usage: Configuration · Formation
+
+La métaphore de l'email:
+- Attribution = "À:" : Responsabilité directe. L'utilisateur doit traiter ce point.
+- Partage = "CC:" : Visibilité sans responsabilité. L'utilisateur est informé.
+
+Règles d'usage:
+- Attribution → une personne ou un groupe responsable du traitement
+- Partage → les parties prenantes qui doivent suivre sans agir
+- Les deux ensemble → détermine qui voit quoi dans le projet
+
+Mécanique de visibilité:
+- Rôle: Les droits (ce qu'on peut faire)
+- Attribution: La visibilité de responsabilité
+- Partage: La visibilité informationnelle
+- Équipe: L'accès au projet
+
+ATTENTION: Un utilisateur non attribué et non en partage ne voit pas la tâche — même s'il est dans l'espace.
+Toujours partager par défaut à un groupe interne incluant l'admin pour éviter les tâches invisibles.
+
+---
+
+## F05 — Rôles utilisateurs
+Catégorie: Fondamentaux | Usage: Configuration · Onboarding · Setup
+
+Les 5 rôles Bulldozair:
+- Propriétaire: Tout faire — 1 seul par espace. Usage: Chef de projet MOE. Nb conseillé: 1 exact.
+- Admin: Tout sauf changer le propriétaire. Usage: Référent technique, BIM manager. Nb conseillé: 1 à 2 max.
+- Collaborateur: Créer tâches, ajouter contenu. Usage: MOE, OPC, équipe terrain. Nb conseillé: Illimité.
+- Rapporteur: Ajouter contenu sur tâches vues/attribuées. Usage: Entreprises, sous-traitants. Nb conseillé: Illimité.
+- Lecteur: Lecture uniquement. Usage: MOA, direction, client. Nb conseillé: Illimité.
+
+Champs à collecter par utilisateur:
+- Email: OBLIGATOIRE — identifiant unique Bulldozair. Format: prenom.nom@domaine.com
+- Rôle: OBLIGATOIRE
+- Nom/Prénom: optionnel
+- Entreprise: recommandé
+- Groupe: recommandé (voir F05b)
+
+RÈGLES: Ne jamais dépasser 20 utilisateurs par espace. Les entreprises = toujours Rapporteur, jamais Collaborateur.
+
+---
+
+## F05b — Groupes Bulldozair
+Catégorie: Fondamentaux | Usage: Configuration · Setup · Partage
+
+Les groupes permettent d'attribuer une tâche à "Entreprise GO" sans sélectionner chaque ouvrier individuellement.
+Sans groupes: attributions individuelles → surcharge manuelle → erreurs → tâches invisibles.
+
+Les deux types de groupes:
+- Groupe interne: Réunir l'équipe MOE/OPC. Ex: "Groupe MOE Projet X". Utilisé pour: Partage par défaut — toutes tâches visibles par l'équipe.
+- Groupe entreprise: Réunir les membres d'un lot. Ex: "Groupe GO / Groupe CFA". Utilisé pour: Attribution par lot.
+
+Groupes recommandés par cas d'usage:
+- Suivi de chantier: Groupe MOE interne + 1 groupe par entreprise si > 3 personnes
+- OPR: 1 groupe par lot technique
+- FNC: 1 groupe qualité/QSE + 1 groupe par lot
+- CRR: Groupe MOE + Groupe MOA si actifs
+- QSE/Audit: Groupe QSE interne + groupes entreprises
+
+RÈGLE CRITIQUE: Créer le groupe interne MOE EN PREMIER, avant d'inviter les autres utilisateurs.
+Pas de groupe interne = pas de partage par défaut fiable = tâches invisibles dans les rapports.
+
+---
+
+## F06 — Structure interne d'une tâche
+Catégorie: Fondamentaux | Usage: Formation · Q&A
+
+La tâche est l'unité minimale et centrale de Bulldozair. C'est une observation unique, documentée et traçable.
+RÈGLE: 1 tâche = 1 observation = 1 ligne dans les rapports. Ne jamais regrouper plusieurs observations.
+
+Contenu d'une tâche:
+- Photos: Preuves visuelles. Non obligatoire mais fortement recommandé.
+- Commentaires: Description textuelle. Non obligatoire.
+- Position: Sur plan 2D, carte GPS, modèle 3D, ou non localisée. Non obligatoire.
+- Formulaire: Checklist structurée. Non obligatoire.
+
+Métadonnées:
+- Tags: Classification par famille. Non natif — oui en pratique.
+- Statut: Avancement dans le workflow. Obligatoire (par défaut = statut initial).
+- Attribution: Responsable du traitement. Non natif — oui en pratique.
+- Partage: Visibilité sans responsabilité. Non obligatoire.
+- Date d'observation: Quand l'observation a été faite.
+- Date d'échéance: Délai de traitement. Obligatoire en CRR.
+
+ATTENTION: Aucun champ natif n'est obligatoire. Pour imposer des champs → utiliser un formulaire.
+
+---
+
+## F07 — Tags — familles officielles
+Catégorie: Composants | Usage: Configuration · Reporting
+
+Les familles de tags sont des RECOMMANDATIONS FORTES de la Méthode Éloi — pas des lois immuables.
+L'agent propose, explique, conseille — mais ne bloque jamais un choix du client sauf si c'est marqué INTERDIT.
+
+Familles officielles Suivi de chantier (RECOMMANDÉ):
+- FAM_01 = "Nature" — ex: Visite, Contrôle, Sécurité, Observation
+- FAM_02 = "Zone" — ex: RDC, R+1, Façade Est, Bâtiment A
+- FAM_03 = "Activité" — ex: CFO, CFA, GO, VRD, Plomberie
+
+Familles officielles OPR (RECOMMANDÉ):
+- FAM_01 = "Zone" — ex: RDC, R+1, Bâtiment A, Appartement 12
+- FAM_02 = "Activité" — ex: CFO, CFA, GO, Plomberie, Peinture
+- INTERDIT: Famille "Nature" en OPR — tout est réserve — aucune valeur ajoutée
+
+Familles officielles FNC (RECOMMANDÉ):
+- FAM_01 = "Type FNC" — ex: Qualité, Sécurité, Documentaire, Délai
+- FAM_02 = "Zone"
+- FAM_03 = "Activité"
+- FAM_04 = "Criticité (opt.)" — ex: Mineure, Majeure, Bloquante
+
+Familles officielles CRR (RECOMMANDÉ):
+- FAM_01 = "Section" — ex: Administratif, Sécurité, Avancement, OS, MOA
+- FAM_02 = "Sous-section (opt.)"
+
+Familles officielles QSE/Audit (RECOMMANDÉ):
+- FAM_01 = "Nature QSE" — ex: Sécurité, Qualité, Environnement
+- FAM_02 = "Zone"
+- FAM_03 = "Gravité (opt.)" — ex: Faible, Significatif, Critique
+
+Règles absolues (INTERDITS réels):
+- INTERDIT: 0 tag dans un projet — sans tags, les rapports sont vides et le projet inexploitable
+- INTERDIT: Nom d'une entreprise comme famille d'Activité
+- INTERDIT: Mélanger deux logiques métier dans un même espace de tags
+
+Niveaux de flexibilité:
+- RECOMMANDÉ: Famille officielle Méthode Éloi → Proposer en premier
+- DÉCONSEILLÉ: Possible mais sous-optimal → Signaler le risque, accepter si le client insiste
+- INTERDIT: Crée un problème structurel certain → Refuser, expliquer, proposer une alternative
+
+---
+
+## F08 — Statuts & Workflows — valeurs figées
+Catégorie: Composants | Usage: Configuration · Formation
+
+3 règles absolues:
+- RÈGLE 1 LIMITE TECHNIQUE: 16 statuts maximum par espace — limite imposée par Bulldozair, impossible d'en créer davantage.
+- RÈGLE 2 MÉTHODE ÉLOI: 5 à 6 statuts recommandés — au-delà, le workflow est abandonné par les équipes terrain.
+- RÈGLE 3 EXCEPTION FNC: Les FNC sont le seul cas d'usage autorisé à 6 statuts.
+
+Workflow officiel Suivi de chantier (4 statuts):
+STATUT_1 = "À faire" → STATUT_2 = "À valider" → STATUT_3 = "Refusé" → STATUT_4 = "Terminé"
+INTERDITS: "Nouveau", "En cours", "En attente", "Ouvert", "Clôturé"
+
+Workflow officiel OPR (4 statuts):
+STATUT_1 = "À lever" → STATUT_2 = "À valider (MOA)" → STATUT_3 = "Refusée" → STATUT_4 = "Terminée"
+INTERDITS: "Nouveau", "En cours", "Levée en cours", "Levée proposée", "Levée validée", "À vérifier", "Réservé"
+
+Workflow officiel CRR (3 statuts):
+STATUT_1 = "Nouveau" → STATUT_2 = "En cours" → STATUT_3 = "Terminé"
+INTERDITS: "À faire", "En attente", "Validé", "Clôturé"
+
+Workflow officiel FNC (6 statuts — seul cas autorisé à 6):
+STATUT_1 = "Ouverte" → STATUT_2 = "En analyse" → STATUT_3 = "En traitement" → STATUT_4 = "À valider" → STATUT_5 = "Close" → STATUT_6 = "Clôture documentaire"
+INTERDITS: "Ouvert", "En cours", "Terminé", "Clôturé"
+
+Workflow officiel QSE/Audit (4 statuts):
+STATUT_1 = "Constat" → STATUT_2 = "À traiter" → STATUT_3 = "À valider" → STATUT_4 = "Terminé"
+INTERDITS: "Nouveau", "En cours", "Résolu", "Clôturé"
+
+Tout statut non listé ci-dessus est une invention. L'agent applique le workflow le plus proche parmi les 5 officiels.
+Réponse correcte à "Combien de statuts max?": 16 maximum technique, 5-6 recommandé Méthode Éloi, 4 pour les cas standard, 6 pour les FNC uniquement.
+
+---
+
+## F09 — Formulaires
+Catégorie: Composants | Usage: Configuration · Formation
+
+Un formulaire sert à structurer le contenu d'une tâche, imposer des champs obligatoires, standardiser une checklist. Il est attaché à la tâche, lié au compte (pas au projet).
+
+Quand utiliser un formulaire:
+- Checklist normée (QSE, sécurité, qualité)
+- Plan de contrôle technique (armatures, coffrage, étanchéité)
+- Audit d'équipement
+- Inspection structurée avec exigence normative
+- Besoin de champs obligatoires pour la saisie
+
+Quand NE PAS utiliser un formulaire:
+- OPR — saisie trop lente, nuit à la productivité
+- CRR — les tâches structurent déjà l'information
+- Observations simples — surcharge inutile
+- Situations à forte volumétrie (OPR, suivi)
+
+Règles de construction:
+- Rester simple: moins de 20 champs
+- Diviser en plusieurs formulaires plutôt qu'un de 80 champs
+- Penser l'export Excel/CSV dès la conception
+- Limiter les champs obligatoires à l'essentiel
+- Tester le formulaire sur le terrain avant déploiement
+
+Plus un formulaire est simple, meilleur est son usage terrain.
+
+---
+
+## F10 — Plans, modèles 3D et SIG
+Catégorie: Composants | Usage: Configuration · Setup
+
+Les 3 types de supports dans Bulldozair (tous superposables dans le même espace):
+- Plan 2D: Format PDF. Noms courants: plan PDF, fond de plan, plan d'étage, plan tuilé. Disponible nativement.
+- Fond de carte SIG: Format GeoJSON. Noms courants: GeoJSON, carte géo, fond cartographique, SIG. Disponible nativement.
+- Modèle 3D: Format IFC. Noms courants: IFC, BIM, maquette 3D, modèle numérique, fichier 3D. Disponible nativement.
+
+Modèles 3D / BIM (IFC):
+OUI — Bulldozair supporte nativement les fichiers IFC. Navigation 3D sur tablette et desktop. Épinglage de tâches directement sur le modèle.
+- Format accepté: IFC (Industry Foundation Classes)
+- Navigation: Oui — 3D sur tablette et desktop
+- Épinglage de tâches: Oui — directement sur le modèle
+- Superposition avec plans 2D: Oui — dans le même espace
+- Taille recommandée: < 500 Mo pour des performances optimales
+- Conseil: Exporter depuis Revit / ArchiCAD en IFC2x3 ou IFC4
+
+ATTENTION: DWG et DXF ne sont pas supportés directement — exporter en PDF avant import.
+
+Réponses aux questions fréquentes:
+- "Puis-je charger des modèles 3D?" → Oui — format IFC. Navigation 3D sur tablette et desktop.
+- "Ça marche avec Revit?" → Oui — exporter en IFC depuis Revit.
+- "Plan 2D ET modèle 3D dans le même espace?" → Oui — superposables nativement.
+- "Google Maps comme fond?" → Non — utiliser GeoJSON. Pas d'intégration Google Maps native.
+
+---
+
+## F11 — Reporting
+Catégorie: Composants | Usage: Configuration · Avant-vente
+
+RÈGLE FONDAMENTALE: Tout ce qui n'existe pas dans les tâches n'existera pas dans le rapport.
+La structure du projet doit permettre de sortir le rapport désiré sans effort. Si ce n'est pas le cas, le projet est mal configuré.
+
+Types de rapports disponibles:
+- Fiche de visite: Suivi de chantier hebdomadaire. Format: PDF.
+- Rapport OPR: Liste des réserves par zone/activité. Format: PDF / Word.
+- Rapport FNC: Non-conformités avec historique. Format: PDF / Excel.
+- Rapport CRR: Tableau des points d'action de réunion. Format: Word.
+- Rapport photo: Galerie illustrée des observations. Format: PDF.
+- Export CSV: Analyse, croisements, Power BI. Format: CSV.
+- Word custom: Rapport client sur modèle existant. Format: DOCX avec balises.
+- Excel custom: Tableaux croisés dynamiques avancés. Format: XLSX avec boucles.
+
+Conséquences d'une mauvaise structure:
+- Pas de tags → Impossible de filtrer ou grouper
+- Pas d'attribution → Impossible de trier par entreprise
+- Pas de statut → Pas d'indicateur d'avancement
+- Tâche = 50 observations → Rapport destructuré et illisible
+
+Questions clés avant tout démarrage:
+- Quel rapport voulez-vous produire exactement ?
+- Avez-vous un modèle Word/Excel existant ?
+- Par quoi voulez-vous grouper les informations (zone, activité, entreprise) ?
+- À qui est destiné ce rapport ? À quelle fréquence ?
+
+---
+
+## F12 — Cas d'usage : Suivi de chantier
+Catégorie: Cas d'usage | Usage: Configuration · Delivery
+
+Représente environ 70% des projets. Objectif: vision claire, régulière et fiable de l'avancement du chantier.
+
+Tags officiels:
+- FAMILLE_1 = "Nature" — Type d'observation. Ex: Visite, Contrôle, Sécurité, Observation, FNC
+- FAMILLE_2 = "Zone" — Localisation. Ex: RDC, R+1, Façade Est, Bâtiment A
+- FAMILLE_3 = "Activité" — Lot technique. Ex: CFO, CFA, GO, VRD, Plomberie, CVC
+
+Workflow officiel:
+"À faire" → "À valider" → "Refusé" → "Terminé"
+VALEURS INTERDITES: "Nouveau", "En cours", "En attente"
+
+Autres paramètres:
+- 1 tâche = 1 observation unique
+- Plans: PDF tuilés par niveau, superposables
+- Formulaire: Non recommandé pour le suivi standard
+- Rapport principal: Fiche de visite
+
+---
+
+## F13 — Cas d'usage : OPR
+Catégorie: Cas d'usage | Usage: Configuration · Delivery
+
+OPR = Opérations Préalables à la Réception.
+Objectif: lever un maximum de réserves en un minimum de temps, de manière structurée, photographiée et attribuée.
+
+Tags officiels:
+- FAMILLE_1 = "Zone" — Localisation de la réserve. Ex: RDC, R+1, Bâtiment A, Cage B, Appartement 12
+- FAMILLE_2 = "Activité" — Lot technique concerné. Ex: CFO, CFA, GO, Plomberie, Peinture, Revêtements
+- INTERDIT: La famille "Nature" est INTERDITE en OPR — tout est réserve.
+
+Workflow officiel:
+"À lever" → "À valider (MOA)" → "Refusée" → "Terminée"
+VALEURS INTERDITES: "Nouveau", "En cours", "Levée en cours", "Levée proposée", "Levée validée", "À vérifier", "Réservé"
+
+Qui fait quoi:
+- "À lever": Entreprise (Rapporteur) — Traite la réserve sur le terrain
+- "À valider (MOA)": MOE (Collaborateur) — Vérifie la levée, soumet à la MOA
+- "Refusée": MOE ou MOA (Admin) — Levée non acceptée, retour à l'entreprise
+- "Terminée": MOA (Admin) — Valide définitivement la réserve
+
+Paramètres:
+- 1 tâche = 1 réserve — une seule
+- Formulaire: INTERDIT — nuit à la rapidité de saisie
+- Rapport: OPR standard ou Excel personnalisé (grands comptes)
+
+RÈGLE: Ne JAMAIS mélanger OPR et suivi de chantier dans le même espace.
+
+---
+
+## F14 — Cas d'usage : FNC
+Catégorie: Cas d'usage | Usage: Configuration · Delivery
+
+FNC = Fiche de Non-Conformité.
+Projets grands comptes, infrastructures, industriels. Objectif: suivre des non-conformités contractuelles, auditables et historiées.
+
+Tags officiels:
+- FAMILLE_1 = "Type FNC" — ex: Qualité, Sécurité, Documentaire, Délai
+- FAMILLE_2 = "Zone" — ex: Tronçon A, Zone 1, Bâtiment C
+- FAMILLE_3 = "Activité" — ex: GO, CFA, CFO, VRD
+- FAMILLE_4 = "Criticité (opt.)" — ex: Mineure, Majeure, Bloquante
+
+Workflow officiel (6 statuts — seul cas d'usage autorisé à 6):
+"Ouverte" → "En analyse" → "En traitement" → "À valider" → "Close" → "Clôture documentaire"
+VALEURS INTERDITES: "Ouvert", "En cours", "Terminé", "Clôturé"
+
+Paramètres:
+- 1 tâche = 1 FNC — une seule non-conformité
+- Rapport: PDF normé ou Excel selon cahier des charges
+- Pièces jointes: Nombreuses — photos, documents de preuve
+
+---
+
+## F15 — Cas d'usage : CRR
+Catégorie: Cas d'usage | Usage: Configuration · Delivery
+
+CRR = Compte Rendu de Réunion.
+Cas d'usage sous-estimé mais très puissant. Objectif: gérer toutes les décisions, actions et arbitrages d'une réunion.
+
+Tags officiels:
+- FAMILLE_1 = "Section" — Grande section du CRR. Ex: Administratif, Sécurité, Avancement, OS, MOA
+- FAMILLE_2 = "Sous-section (opt.)" — À définir selon le format du client
+
+Workflow officiel:
+"Nouveau" → "En cours" → "Terminé"
+VALEURS INTERDITES: "À faire", "En attente", "Validé", "Clôturé"
+
+Paramètres:
+- 1 tâche = 1 point d'action
+- Attribution: Obligatoire — responsable du point
+- Date d'échéance: Obligatoire
+- Formulaire: Non
+- Rapport: Tableau Word — Section / Tâche / Attribué à / Échéance / Statut
+
+---
+
+## F16 — Cas d'usage : QSE / Audit
+Catégorie: Cas d'usage | Usage: Configuration · Delivery
+
+Tags officiels:
+- FAMILLE_1 = "Nature QSE" — ex: Sécurité, Qualité, Environnement
+- FAMILLE_2 = "Zone" — ex: Zone chantier, Atelier, Extérieur
+- FAMILLE_3 = "Gravité (opt.)" — ex: Faible, Significatif, Critique
+
+Workflow officiel:
+"Constat" → "À traiter" → "À valider" → "Terminé"
+VALEURS INTERDITES: "Nouveau", "En cours", "Résolu", "Clôturé"
+
+---
+
+## F17 — Cas d'usage : SIG Infrastructure
+Catégorie: Cas d'usage | Usage: Configuration · Technique
+
+Infrastructure linéaire et SIG. Obligatoire pour routes, rails, réseaux, canalisations, VRD étendus. La localisation se fait sur carte plutôt que sur plan.
+
+Paramètres:
+- 1 tâche = 1 point singulier (PK, défaut, constat...)
+- Localisation: GPS sur fond GeoJSON
+- Support cartographique: GeoJSON WGS84 < 15 Mo
+- Tags: Tronçon / Nature / Activité
+- Workflow: Similaire suivi ou contrôle QSE
+
+Workflow de préparation du fond de carte:
+1. Obtenir le DWG du projet
+2. Convertir en SHP (Shapefile)
+3. Convertir en GeoJSON, projection WGS84
+4. Vérifier poids < 15 Mo (simplifier si nécessaire)
+5. Uploader dans Bulldozair → Fond de carte
+6. Valider la projection avec 2-3 points de contrôle terrain
+
+ATTENTION: Un GeoJSON mal projeté (non WGS84) placera toutes les tâches au mauvais endroit sur la carte.
+
+---
+
+## F18 — Méthode Éloi — 15 étapes
+Catégorie: Méthode | Usage: Formation · Onboarding · Delivery
+
+Méthodologie empirique construite sur des centaines de projets. Garantit qu'un projet Bulldozair soit structuré, cohérent, maintenable et capable de produire un reporting fiable.
+
+RÈGLE: L'étape 3 (reporting) conditionne toutes les autres. Ne jamais la sauter.
+
+Les 15 étapes:
+1. Comprendre le contexte — À quel stade êtes-vous du projet ?
+2. Identifier le cas d'usage — Suivi, OPR, FNC, CRR, Audit ?
+3. Définir le reporting — Montrez-moi le rapport que vous voulez sortir. (ÉTAPE CRITIQUE)
+4. Découper en espaces — Quelle volumétrie prévisionnelle ? Combien d'utilisateurs ?
+5. Concevoir les tags — Quelles dimensions voulez-vous filtrer dans vos rapports ?
+6. Définir les statuts — Comment le workflow de validation fonctionne-t-il ?
+7. Définir les formulaires — Avez-vous des checklists normées à respecter ?
+8. Configurer l'équipe — Qui fait quoi ? Qui voit quoi ?
+9. Paramétrer le partage par défaut — Qui doit voir toutes les tâches par défaut ?
+10. Ajouter plans / 3D / SIG — Les plans sont-ils superposables ?
+11. Construire le template — Valider tags + statuts + partage par défaut.
+12. Créer une tâche exemple — Montrer concrètement le bon usage.
+13. Générer un rapport exemple — Valider que la structure produit le bon rapport.
+14. Former les utilisateurs — Formation collecte (terrain) + formation config (référents).
+15. Suivi post-démarrage — Corriger les dérives pendant 1 à 3 semaines.
+
+---
+
+## F19 — Découpage des espaces
+Catégorie: Méthode | Usage: Configuration · Avant-vente
+
+Critères de split obligatoire:
+- Volumétrie ≥ 5 000 tâches → Split par zone, bâtiment, phase ou lot
+- Équipe ≥ 20 utilisateurs → Split par équipe ou lot
+- 2 cas d'usage différents → Toujours séparer
+- Gares, bâtiments, tronçons distincts → Split recommandé
+
+Exemples de découpages courants:
+- Grand chantier bâtiment: 1 espace par bâtiment ou par phase
+- Projet infrastructure: 1 espace par tronçon ou par lot
+- Projet multilots: 1 espace OPR par lot technique
+- Projet multi-sites: 1 espace par site ou par gare
+
+Ne jamais mettre dans le même espace:
+- Suivi de chantier + OPR
+- FNC + CRR
+- Contrôles internes + points d'action client
+
+En cas de doute: préférer trop d'espaces que pas assez.
+
+---
+
+## F20 — Template projet
+Catégorie: Méthode | Usage: Configuration · Delivery
+
+Ce que le template DOIT contenir:
+- Tags (toutes les familles avec leurs valeurs)
+- Statuts (workflow complet)
+- Groupe de partage par défaut
+- Paramètres essentiels de l'espace
+
+Ce que le template NE DOIT PAS contenir:
+- Plans — spécifiques à chaque projet
+- Formulaires — liés au compte, pas au projet
+- Tâches — un template ne contient pas de données
+
+Templates par cas d'usage:
+- Template Suivi de chantier: Tags Nature/Zone/Activité + workflow 4 statuts
+- Template OPR: Tags Zone/Activité + workflow MOA/MOE
+- Template FNC: Tags Type/Zone/Activité/Criticité + workflow 6 statuts
+- Template CRR: Tags Section/Sous-section + workflow 3 statuts
+- Template QSE: Tags Nature QSE/Zone/Gravité + workflow 4 statuts
+
+Valider le template sur un rapport exemple avant de le déployer sur de vrais projets.
+
+---
+
+## F21 — Formation utilisateurs
+Catégorie: Méthode | Usage: Onboarding · Delivery
+
+RÈGLE: Ne jamais mélanger la formation collecte et la formation configuration dans la même session.
+
+Formation 1 — Collecte de données (terrain):
+Public: tous les utilisateurs terrain (collaborateurs, rapporteurs).
+Contenu: Créer une tâche (1 observation = 1 tâche), prendre et ajouter des photos, choisir les bons tags, positionner sur le plan, écrire un commentaire clair et court, changer le statut, attribuer une tâche.
+
+Formation 2 — Configuration (référents):
+Public: chefs de projet, admins, référents Bulldozair.
+Contenu: Créer un espace et le configurer, créer et nommer les tags, paramétrer le workflow, gérer les rôles et les accès, uploader les plans, configurer le partage par défaut, générer et lire les rapports.
+
+Suivi post-démarrage (1 à 3 semaines):
+- Vérifier que les tags sont correctement utilisés
+- Corriger les tâches multi-observations
+- S'assurer que les statuts évoluent
+- Analyser les premiers rapports
+- Ajuster le template si nécessaire
+
+---
+
+## F22 — Anti-pattern : Absence de tags
+Catégorie: Anti-patterns | Usage: Q&A · Diagnostic
+
+Anti-pattern #1 — C'est la cause n°1 d'échec dans Bulldozair. Un projet sans tags est inexploitable.
+
+Symptômes:
+- Impossible de filtrer les tâches
+- Rapports illisibles ou vides
+- Aucune segmentation par zone, activité ou nature
+- Données plates — tout est au même niveau
+- Projet progressivement abandonné par les équipes
+
+Causes:
+- L'utilisateur ne sait pas ce qu'est un tag
+- Absence de template projet avec tags pré-créés
+- Confusion entre tags, statuts et formulaires
+- Setup fait sans accompagnement
+
+Solution Méthode Éloi:
+- Définir les tags APRÈS avoir vu le rapport attendu
+- Imposer au minimum 2 familles, idéalement 3
+- Structurer: Nature / Zone / Activité
+- Créer un template avec tags pré-créés pour chaque cas d'usage
+- Former les utilisateurs sur le rôle des tags dans le reporting
+
+Message agent: "Aucun tag détecté dans cet espace. Vous devez en ajouter au moins 2 pour rendre le projet exploitable. Voulez-vous que je vous aide à les définir ?"
+
+---
+
+## F23 — Anti-pattern : Tâches fourre-tout
+Catégorie: Anti-patterns | Usage: Q&A · Diagnostic
+
+Anti-pattern #2 — Deuxième erreur la plus courante. Une tâche regroupant plusieurs observations est inutilisable pour le reporting et le workflow.
+
+Symptômes:
+- 40 photos dans une seule tâche
+- 20 problèmes différents mélangés
+- Impossible de trier, filtrer ou attribuer précisément
+- Workflow inutilisable (qu'est-ce qui est "Terminé" ?)
+- Rapports avec 1 ligne = 50 éléments
+
+Causes:
+- Confusion entre Bulldozair et WhatsApp / messagerie
+- Utilisateurs pressés, sans formation
+- Mauvaise compréhension du concept de granularité
+
+Solution: 1 tâche = 1 observation = 1 responsable = 1 statut = 1 ligne dans le rapport.
+Lors d'une visite, créer autant de tâches que d'observations.
+
+Message agent: "Plusieurs observations distinctes semblent regroupées dans cette tâche. La bonne pratique est de créer une tâche par observation. Souhaitez-vous de l'aide pour restructurer ?"
+
+---
+
+## F24 — Anti-pattern : Statuts & workflow
+Catégorie: Anti-patterns | Usage: Q&A · Diagnostic
+
+AP #3 — Pas de statuts (ou statuts non utilisés):
+Symptômes: 100% des tâches en statut initial, aucun avancement lisible.
+Solution: 4 à 6 statuts simples, adaptés au cas d'usage.
+
+AP #4 — Absence d'attribution:
+Symptômes: aucune responsabilité visible, les entreprises ne voient rien.
+Solution: attribution systématique dès la création, groupes d'entreprises.
+
+AP #5 — Espace trop large:
+Symptômes: > 5 000 tâches, > 20 utilisateurs, lenteurs, bruit.
+Solution: split par zone, lot, bâtiment ou cas d'usage.
+
+AP #6 — Workflow trop complexe:
+Symptômes: 12 à 16 statuts, transitions incompréhensibles, workflow jamais utilisé.
+Solution: max 6 statuts, pensés pour le terrain pas pour l'organigramme.
+
+AP #7 — Mauvaise gestion des plans:
+Symptômes: plans remplacés non superposables, pins décalés.
+Solution: vérifier la superposabilité AVANT tout remplacement.
+
+---
+
+## F25 — Anti-pattern : Utilisateurs & formulaires
+Catégorie: Anti-patterns | Usage: Q&A · Diagnostic
+
+AP #8 — Trop d'utilisateurs dans un espace:
+Symptômes: spam de notifications, surcharge visuelle, dérive du projet.
+Solution: 20 max, groupes internes, espaces séparés.
+
+AP #9 — Pas de partage par défaut:
+Symptômes: tâches invisibles pour le MOE, reporting incomplet.
+Solution: partage par défaut sur un groupe interne incluant l'admin.
+
+AP #10 — Formulaires trop longs:
+Symptômes: utilisateurs ne remplissent pas, données incomplètes, rapports creux.
+Solution: plusieurs petits formulaires > un énorme. Limiter les champs obligatoires.
+
+AP #11 — Pas de template projet:
+Symptômes: tags incohérents entre projets, workflows différents d'un site à l'autre.
+Solution: un template validé par cas d'usage, déployé systématiquement.
+
+Les anti-patterns 8 à 11 sont tous évitables avec un bon setup initial et un template validé.
+
+---
+
+## F26 — Checklist démarrage
+Catégorie: Opérationnel | Usage: Delivery · Avant-vente
+
+À valider avant tout déploiement terrain.
+
+Contexte et cas d'usage:
+- Cas d'usage principal identifié
+- Rapport final défini (ou modèle existant récupéré)
+- Volumétrie prévisionnelle estimée
+- Découpage en espaces décidé
+
+Structure:
+- Tags définis (2-3 familles minimum)
+- Nomenclature des tags validée et normalisée
+- Workflow défini (4-6 statuts)
+- Statut "Terminé" présent
+- Accès aux statuts configuré par rôle
+
+Équipe et visibilité:
+- Rôles attribués (propriétaire, admins, collaborateurs, rapporteurs, lecteurs)
+- Nombre d'utilisateurs < 20
+- Partage par défaut configuré sur groupe interne
+
+Supports:
+- Plans uploadés et superposables
+- GeoJSON uploadé et vérifié (si infrastructure)
+- Formulaires créés (si contrôle ou audit)
+
+Validation finale:
+- Template projet validé
+- Tâche exemple créée
+- Rapport exemple généré et validé par le client
+- Formation collecte programmée
+- Formation configuration faite
+- Suivi post-démarrage planifié (J+7, J+14)
+
+---
+
+## F27 — Checklist tags
+Catégorie: Opérationnel | Usage: Configuration · Q&A
+
+Complétude:
+- Au moins 2 familles de tags définies
+- Idéalement 3 familles (Nature / Zone / Activité)
+- Tous les regroupements nécessaires au rapport sont couverts par un tag
+
+Qualité:
+- Nomenclature stable et cohérente (pas de variantes orthographiques)
+- Tags courts et lisibles (3 à 5 mots max)
+- Pas de doublons
+- Pas de tags fourre-tout (ex: "Divers", "Autre")
+
+Pertinence:
+- La zone est un tag dédié (si projet bâtiment)
+- L'activité ≠ le nom d'une entreprise
+- Les tags correspondent à ce que le client veut voir dans son rapport
+
+Questions à poser au client:
+- Comment voulez-vous grouper vos observations dans le rapport ?
+- Par zone ? Par activité ? Par nature de problème ?
+- Quels filtres utiliserez-vous le plus souvent ?
+
+Tester les tags en générant un rapport exemple avant de former les équipes terrain.
+
+---
+
+## F28 — Checklist tâches
+Catégorie: Opérationnel | Usage: Formation · Q&A
+
+Contenu d'une bonne tâche:
+- 1 observation unique (pas plusieurs)
+- Au moins 1 photo (claire, cadrée sur le problème)
+- Commentaire court et précis (quoi, où, pourquoi)
+- Position sur plan / carte / modèle si pertinent
+
+Métadonnées d'une bonne tâche:
+- Tags correctement sélectionnés (2-3 familles)
+- Statut défini (pas laissé au statut par défaut si déjà traité)
+- Attribution faite (responsable clairement désigné)
+- Date d'échéance fixée (si CRR ou suivi)
+
+Erreurs à corriger immédiatement:
+- Tâche avec 10+ photos = plusieurs observations mélangées → à diviser
+- Pas de tags → tâche inexploitable dans les rapports
+- Pas d'attribution → responsabilité floue
+- Commentaire vide → information incomplète
+
+Une bonne tâche = on sait quoi, où, qui, et quel est l'état d'avancement.
+
+---
+
+## F29 — Arbres décisionnels
+Catégorie: Opérationnel | Usage: Configuration · Q&A · Agent
+
+Choisir le cas d'usage:
+- Visite de chantier, photos d'avancement → Suivi de chantier
+- Réserves à lever avant réception → OPR
+- Non-conformités contractuelles, auditables → FNC
+- Points d'action issus d'une réunion → CRR
+- Checklist normée, plan de contrôle → Contrôle / Formulaire
+- Constat QSE, sécurité, environnement → Audit / QSE
+- Suivi d'équipements installés → Équipements
+- Localisation sur carte, projet linéaire → Infrastructure / SIG
+
+Choisir le workflow:
+- Suivi → À faire → À valider → Refusé → Terminé
+- OPR → À lever → À valider MOA → Refusée → Terminée
+- CRR → Nouveau → En cours → Terminé
+- FNC → Ouverte → En analyse → En traitement → À valider → Close
+- QSE/Audit → Constat → À traiter → À valider → Terminé
+
+Faut-il des formulaires ?:
+- Checklist normée existante → Oui → créer un formulaire
+- Champs obligatoires à imposer → Oui → créer un formulaire
+- OPR → Non — trop lent
+- CRR → Non — les tâches structurent déjà
+- Suivi de chantier standard → Non — sauf QSE
+- Forte volumétrie attendue → Non — formulaire = friction = non-usage
+
+Faut-il découper en plusieurs espaces ?:
+- Volumétrie > 5 000 tâches attendues → Oui → split obligatoire
+- Équipe > 20 utilisateurs → Oui → split obligatoire
+- Deux cas d'usage différents → Oui → toujours séparer
+- Plusieurs bâtiments / gares / tronçons → Oui → recommandé
+- < 1 000 tâches, < 15 utilisateurs, 1 cas d'usage → Non → 1 espace suffit
+
+---
+
+## F30 — 10 règles essentielles
+Catégorie: Opérationnel | Usage: Formation · Onboarding · Q&A
+
+Ces règles sont non négociables. Elles conditionnent 100% de la réussite d'un projet Bulldozair.
+Ces 10 règles peuvent être partagées avec les clients comme "contrat de méthode" avant tout démarrage.
+
+1. Toujours commencer par définir le rapport attendu. Risque si ignorée: Projet mal structuré, reporting impossible.
+2. 1 espace = 1 cas d'usage. Risque si ignorée: Rapports mélangés, workflow cassé.
+3. Les tags = colonne vertébrale du projet. Risque si ignorée: Données plates, reporting inutilisable.
+4. Workflow simple (4-6 statuts max). Risque si ignorée: Workflow ignoré par les équipes terrain.
+5. 1 tâche = 1 observation, toujours. Risque si ignorée: Rapports destructurés, responsabilités floues.
+6. 20 utilisateurs maximum par espace. Risque si ignorée: Bruit, notifications spam, abandon.
+7. 5 000 tâches maximum par espace. Risque si ignorée: Lenteurs, complexité ingérable.
+8. Partage par défaut obligatoire (groupe interne). Risque si ignorée: Tâches invisibles, reporting troué.
+9. Plans superposables avant tout remplacement. Risque si ignorée: Perte de toutes les localisations.
+10. Template projet obligatoire avant démarrage. Risque si ignorée: Incohérence entre projets, dérives.
